@@ -1,0 +1,14 @@
+Jeru Sanders
+20/09/15
+Lab 2
+
+Purpose: To write functions to compute some basic geometrical calculations.
+
+a) What I learned:
+How the Doxygen comment system works and how to write functions properly.
+
+b) Issues I fixed:
+I had forgotten for a while to start my Doxygen comments with /** rather than just /*
+
+c) Improvements I made:
+Originally the perimeter_triangle() function required 3 parameters, I modified the function to resolve the third value withthe hypotenuse function 

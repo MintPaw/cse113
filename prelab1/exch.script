@@ -1,0 +1,11 @@
+Script started on Wed 04 Feb 2015 10:19:40 AM MST
+mintpaw@MintPaw-Lappy:~/c/labs/prelab1$ ./exch 
+10$; 7.500000
+100.25$; 75.187500
+.75 euro; 1.000000
+10 euro; 13.333333
+100.25 euro; 133.666672
+mintpaw@MintPaw-Lappy:~/c/labs/prelab1$ exit
+exit
+
+Script done on Wed 04 Feb 2015 10:19:46 AM MST

@@ -1,0 +1,25 @@
+Script started on Mon 09 Feb 2015 09:31:27 AM MST
+mintpaw@MintPaw-Lappy:~/c/labs/lab1$ ./lab1
+Area of rectangle 3, 4: 12.000000
+Perimeter of rectangle 3, 4: 14.000000
+Diagonal of rectangle 3, 4: 5.000000
+Area of circle 4: 50.265482
+Circumference of circle 4: 25.132741
+Area of triangle 3, 4: 6.000000
+Hypotenuse of triangle 3, 4: 5.000000
+Perimeter of triangle 3, 4: 12.000000
+Exterior of angles of 8-sided polygon: 0.000000
+Interior of angles of 8-sided polygon: 135.000000
+Area of 8-sided polygon with side length 10: 482.842712
+mintpaw@MintPaw-Lappy:~/c/labs/lab1$ qito[K[K[Kuit
+No command 'quit' found, did you mean:
+ Command 'qgit' from package 'qgit' (universe)
+ Command 'quilt' from package 'quilt' (main)
+ Command 'quot' from package 'quota' (main)
+ Command 'luit' from package 'x11-utils' (main)
+ Command 'quiz' from package 'bsdgames' (universe)
+quit: command not found
+mintpaw@MintPaw-Lappy:~/c/labs/lab1$ exot[K[Kit
+exit
+
+Script done on Mon 09 Feb 2015 09:31:39 AM MST

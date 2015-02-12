@@ -1,0 +1,13 @@
+I much prefer 'if' to 'case', in the examples the 'case' is easier for me to read than the 'if'.
+But if the 'if' example was written using one liners it would become easier.
+
+I don't believe one liner ifs are less error prone than case as it's easy to forget the break
+Also the lack of braces looks really jarring to me
+
+Case is just like if except the word 'if' is changed to 'case'
+The opening brace is changed to ':' and the ending brace is changed to 'default'
+
+'if/else' is way easier to interpret than 'switch/case/default' from a language point of view.
+Case is far more limited than if. You can only make an equality comparison between integers.
+The only new thing case allows you to do is to be able to skip the break an run multiple cases.
+Which I personally have never found a uses for

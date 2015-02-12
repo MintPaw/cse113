@@ -1,0 +1,10 @@
+Script started on Wed 04 Feb 2015 10:19:06 AM MST
+mintpaw@MintPaw-Lappy:~/c/labs/prelab1$ e[K/[K./eval 
+When n=0; 0.000000
+When n=1; 0.333333
+When n=5; 1.666667
+When n=10; 3.333333
+mintpaw@MintPaw-Lappy:~/c/labs/prelab1$ exit
+exit
+
+Script done on Wed 04 Feb 2015 10:19:12 AM MST

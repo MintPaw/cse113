@@ -1,0 +1,230 @@
+Script started on Thu 12 Feb 2015 01:09:46 AM EST
+xubuntu@xubuntu-VirtualBox:~/cse113/lab2$ REally? All cases?[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K./lab2 
+Welcome to Jeru Sanders' geometry calculator
+
+Select a category:
+
+C. Circles
+P. Regular Polygons
+R. Rectangles
+T. Right Triangles
+
+Make a selection: c
+
+
+
+A. Area
+C. Circumference
+Make a selection: A
+Give a radius: 1
+The area of cirle radius 1.000000 is 3.141593
+xubuntu@xubuntu-VirtualBox:~/cse113/lab2$ ./lab2 
+Welcome to Jeru Sanders' geometry calculator
+
+Select a category:
+
+C. Circles
+P. Regular Polygons
+R. Rectangles
+T. Right Triangles
+
+Make a selection: c
+
+
+
+A. Area
+C. Circumference
+Make a selection: c
+Give a radius: 1
+The circumference cirle radius 1.000000 is 6.283185
+xubuntu@xubuntu-VirtualBox:~/cse113/lab2$ ./lab2 
+Welcome to Jeru Sanders' geometry calculator
+
+Select a category:
+
+C. Circles
+P. Regular Polygons
+R. Rectangles
+T. Right Triangles
+
+Make a selection: o p
+
+
+
+E. Exterior angles
+I. Interior angles
+A. Area
+Make a selection: e
+Give polygon sides: 10000
+The exterior angles of a polygon with 10000.000000 sides is 27.000000
+xubuntu@xubuntu-VirtualBox:~/cse113/lab2$ ./lab2 
+Welcome to Jeru Sanders' geometry calculator
+
+Select a category:
+
+C. Circles
+P. Regular Polygons
+R. Rectangles
+T. Right Triangles
+
+Make a selection: p
+
+
+
+E. Exterior angles
+I. Interior angles
+A. Area
+Make a selection: i
+Give polygon sides: 3
+The interior angles of a polygon with 3.000000 sides is 60.000000
+xubuntu@xubuntu-VirtualBox:~/cse113/lab2$ ./lab2 
+Welcome to Jeru Sanders' geometry calculator
+
+Select a category:
+
+C. Circles
+P. Regular Polygons
+R. Rectangles
+T. Right Triangles
+
+Make a selection: p
+
+
+
+E. Exterior angles
+I. Interior angles
+A. Area
+Make a selection: a
+Give polygon sides: 3
+Give side length: 10
+The area of a polygon with 3.000000 sides 10.000000 long is 43.301270
+xubuntu@xubuntu-VirtualBox:~/cse113/lab2$ ./lab2 
+Welcome to Jeru Sanders' geometry calculator
+
+Select a category:
+
+C. Circles
+P. Regular Polygons
+R. Rectangles
+T. Right Triangles
+
+Make a selection: r
+
+
+
+A: Area
+P: Perimeter
+D: Diagonal
+Make a selection: a
+Give width: 2
+Give height: 2
+The area of rectangle length 2.000000 and width 2.000000 is 4.000000
+xubuntu@xubuntu-VirtualBox:~/cse113/lab2$ ./lab2 
+Welcome to Jeru Sanders' geometry calculator
+
+Select a category:
+
+C. Circles
+P. Regular Polygons
+R. Rectangles
+T. Right Triangles
+
+Make a selection: r
+
+
+
+A: Area
+P: Perimeter
+D: Diagonal
+Make a selection: p
+Give width: 3
+Give height: 3
+The perimeter of rectangle length 3.000000 and width 3.000000 is 12.000000
+xubuntu@xubuntu-VirtualBox:~/cse113/lab2$ ./lab2 
+Welcome to Jeru Sanders' geometry calculator
+
+Select a category:
+
+C. Circles
+P. Regular Polygons
+R. Rectangles
+T. Right Triangles
+
+Make a selection: r
+
+
+
+A: Area
+P: Perimeter
+D: Diagonal
+Make a selection: d
+Give width: 3
+Give height: 4
+The diagonal of rectangle length 3.000000 and width 4.000000 is 5.000000
+xubuntu@xubuntu-VirtualBox:~/cse113/lab2$ ./lab2 
+Welcome to Jeru Sanders' geometry calculator
+
+Select a category:
+
+C. Circles
+P. Regular Polygons
+R. Rectangles
+T. Right Triangles
+
+Make a selection: t
+
+
+
+A: Area
+P: Perimeter
+H: Hypotenuse
+Make a selection: a
+Give base: 2
+Give height: 3
+The area of triangle sides 2.000000 and 3.000000 is 3.000000
+xubuntu@xubuntu-VirtualBox:~/cse113/lab2$ ./lab2 
+Welcome to Jeru Sanders' geometry calculator
+
+Select a category:
+
+C. Circles
+P. Regular Polygons
+R. Rectangles
+T. Right Triangles
+
+Make a selection: t
+
+
+
+A: Area
+P: Perimeter
+H: Hypotenuse
+Make a selection: p
+Give side A: 2
+Give side B: 3
+The perimeter of triangle sides 2.000000 and 3.000000 is 8.605551
+xubuntu@xubuntu-VirtualBox:~/cse113/lab2$ ./lab2 
+Welcome to Jeru Sanders' geometry calculator
+
+Select a category:
+
+C. Circles
+P. Regular Polygons
+R. Rectangles
+T. Right Triangles
+
+Make a selection: t
+
+
+
+A: Area
+P: Perimeter
+H: Hypotenuse
+Make a selection: h
+Give side A: 3
+Give side B: 4
+The hypotenuse of triangle sides 3.000000 and 4.000000 is 5.000000
+xubuntu@xubuntu-VirtualBox:~/cse113/lab2$ exit
+exit
+
+Script done on Thu 12 Feb 2015 01:11:31 AM EST

@@ -1,0 +1,9 @@
+Script started on Fri 13 Feb 2015 10:48:04 PM EST
+xubuntu@xubuntu-VirtualBox:~/cse113/lab2$ ./ch5_ex7
+Give 4 integers sperated by spaces: 35 43 52 73
+Lowest: 35
+Highest:73
+xubuntu@xubuntu-VirtualBox:~/cse113/lab2$ exit
+exit
+
+Script done on Fri 13 Feb 2015 10:48:22 PM EST

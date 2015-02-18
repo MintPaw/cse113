@@ -12,13 +12,18 @@ int multiply_range(int start, int end);
 
 int main()
 {
-        printf("%d\n", multiply_range(1, 5));
-        printf("%d\n", multiply_range(5, 1));
-        printf("%d\n", multiply_range(5, 5));
+        printf("%d, %d = %d\n", 3, 7, multiply_range(3, 7));
+        printf("%d, %d = %d\n", 19, 18, multiply_range(19, 18));
 
         return 0;
 }
 
+/**
+* Multiplies a range of numbers
+* @param start The start of the range
+* @param end The end of the range
+* @return the result of the multiplication
+*/
 int multiply_range(int start, int end)
 {
         if (start > end)

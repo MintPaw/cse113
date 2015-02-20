@@ -1,0 +1,9 @@
+get_count():
+        for i in 0 -> array_length:
+                if op == LT
+                        if array[i] < x
+                                count++
+                if op == LE
+                        if array[i] <= x
+                                count++
+etc...

@@ -104,3 +104,80 @@ int get_count(int a[], size_t size, int operation, int x)
 
         return count;
 }
+
+int linear_search(int a[], size_t size, int search)
+{
+        int i;
+        for (i = 0; i < size; i++)
+        {
+               if (a[i] == search) return i; 
+        }
+
+        return -1;
+}
+
+void bubble_sort(int a[], size_t size)
+{
+        int sorted = 0;
+        int i;
+        int temp;
+        while (!sorted)
+        {
+                sorted = 1;
+
+                for (i = 1; i < size; i++)
+                {
+                        if (a[i - 1] > a[i])
+                        {
+                                sorted = 0;
+                                temp = a[i];
+                                a[i] = a[i - 1];
+                                a[i - 1] = temp;
+                        }
+                }
+        }
+}
+
+void insertion_sort(int a[], size_t size)
+{
+        int i;
+        int j;
+        int temp;
+        int sorted = 0;
+        while (!sorted)
+        {
+                sorted = 1;
+                for (i = 1; i < size; i++)
+                {
+                        for (j = i; j >= 0; j--)
+                        {
+                                if (a[j] > a[i])
+                                {
+                                        sorted = 0;
+                                        temp = a[i];
+                                        a[i] = a[j];
+                                        a[j] = temp;
+                                }
+                        }
+                }
+        }
+}
+
+void reverse(int a[], size_t size)
+{
+        int i;
+        int temp;
+        for (i = 0; i < size / 2; i++)
+        {
+                temp = a[i];
+                a[i] = a[size - 1 - i];
+                a[size - 1 - i] = temp;
+        }
+}
+
+int median(int a[], size_t size)
+{
+        return size % 2
+                ? a[size / 2] + a[(size / 2) + 1] / 2
+                : a[(size + 1) / 2];
+}

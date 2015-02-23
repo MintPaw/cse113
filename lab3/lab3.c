@@ -19,7 +19,7 @@
 #include <stdio.h>
 #include "array.h"
 
-void print_summary(size_t size, int max, int min);
+void print_summary(int a[], size_t size);
 
 int main(void)
 {
@@ -42,19 +42,32 @@ int main(void)
         printf("get_count works: %s\n", get_count(test1, 10, GT, 5) == 5 ? "yes" : "no");
         printf("get_count works: %s\n", get_count(test1, 10, GE, 5) == 6 ? "yes" : "no");
         printf("\n");
-	size_t size = sizeof(a) / sizeof(int);
-        /* size_t size = sizeof(a) / sizeof(a[0]); */
 
-        int max = find_max(a, size);
-        int min = find_min(a, size);
+        size_t size = sizeof(a) / sizeof(a[0]);
 
 	print_array(a, size);
-        print_summary(size, max, min);
+        print_summary(a, size);
 
 	return 0;
 }
 
-void print_summary(size_t size, int max, int min)
+void print_summary(int a[], size_t size)
 {
+        int max = find_max(a, size);
+        int min = find_min(a, size);
+
         printf("size of array = %zu\nmax element = %d\nmin element = %d\nmidpoint = %d\n", size, max, min, find_midpoint(max, min));
+        printf("midpoint%s found in array\n", linear_search(a, size, find_midpoint(max, min)) != -1 ? "" : " not");
+
+        printf("\nBubble sorted:\n");
+        bubble_sort(a, size);
+        print_array(a, size);        
+
+        printf("\nReversed:\n");
+        reverse(a, size);
+        print_array(a, size);        
+
+        printf("\nInsert sorted:\n");
+        insertion_sort(a, size);
+        print_array(a, size);        
 }

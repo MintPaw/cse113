@@ -32,6 +32,10 @@ int find_max(int a[], size_t size);
 int find_min(int a[], size_t size);
 int find_midpoint(int max, int min);
 int get_count(int a[], size_t size, int operation, int x);
+int linear_search(int a[], size_t size, int search);
+void bubble_sort(int a[], size_t size);
+void insertion_sort(int a[], size_t size);
+void reverse(int a[], size_t size);
 
 #endif
 

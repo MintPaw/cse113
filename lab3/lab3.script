@@ -1,0 +1,76 @@
+Script started on Mon 23 Feb 2015 11:51:50 PM MST
+mintpaw@MintPaw-PC:~/cse113/lab3$ ./[K[Kgcc -g -Wall lab3[K[K[K[Karray.c [C[1@ [1@i[1@c[1P[1P[1@-[1@c
+mintpaw@MintPaw-PC:~/cse113/lab3$ gcc -g -Wall array.[K[K[K[K[K[Klab3.c array.o -o lab3
+mintpaw@MintPaw-PC:~/cse113/lab3$ ./lab3
+find_max works: yes
+find_max works: yes
+find_max works: yes
+find_min works: yes
+find_min works: yes
+find_min works: yes
+find_midpoint works: yes
+get_count works: yes
+get_count works: yes
+get_count works: yes
+get_count works: yes
+get_count works: yes
+
+a[0] = 9
+a[1] = 7
+a[2] = 5
+a[3] = 3
+a[4] = 2
+a[5] = 77
+a[6] = 8
+a[7] = 12
+a[8] = 4
+a[9] = 5
+a[10] = 11
+size of array = 11
+max element = 77
+min element = 2
+midpoint = 39
+midpoint not found in array
+
+Bubble sorted:
+a[0] = 2
+a[1] = 3
+a[2] = 4
+a[3] = 5
+a[4] = 5
+a[5] = 7
+a[6] = 8
+a[7] = 9
+a[8] = 11
+a[9] = 12
+a[10] = 77
+
+Reversed:
+a[0] = 77
+a[1] = 12
+a[2] = 11
+a[3] = 9
+a[4] = 8
+a[5] = 7
+a[6] = 5
+a[7] = 5
+a[8] = 4
+a[9] = 3
+a[10] = 2
+
+Insert sorted:
+a[0] = 2
+a[1] = 3
+a[2] = 4
+a[3] = 5
+a[4] = 5
+a[5] = 7
+a[6] = 8
+a[7] = 9
+a[8] = 11
+a[9] = 12
+a[10] = 77
+mintpaw@MintPaw-PC:~/cse113/lab3$ exit
+exit
+
+Script done on Mon 23 Feb 2015 11:52:42 PM MST

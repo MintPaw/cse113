@@ -36,6 +36,12 @@ void print_array(int a[], size_t size)
 		printf("a[%d] = %d\n", i, a[i]);
 }
 
+/**
+* Find the largest value in an array ofints
+* @param a the array with the values
+* @param size The size of the array
+* @return the largest value in the array
+*/
 int find_max(int a[], size_t size)
 {
         int max = a[0];
@@ -49,6 +55,13 @@ int find_max(int a[], size_t size)
         return max;
 }
 
+
+/**
+* Find the smallest value in an array ofints
+* @param a the array with the values
+* @param size The size of the array
+* @return the smallest value in the array
+*/
 int find_min(int a[], size_t size)
 {
         int min = a[0];
@@ -62,11 +75,25 @@ int find_min(int a[], size_t size)
         return min;
 }
 
+/**
+* Finds the average of to numbers
+* @param max The larger value
+* @param min The smaller value
+* @return The average
+*/
 int find_midpoint(int max, int min)
 {
         return (max + min) / 2;
 }
 
+/**
+* Does counts the number of elemests that satisfies a condition
+* @param a The array
+* @param size The size of the array
+* @param operation The condition you'd like to test for
+* @param x The value related to the condition
+* @return The count
+*/
 int get_count(int a[], size_t size, int operation, int x)
 {
         int count = 0;
@@ -105,6 +132,14 @@ int get_count(int a[], size_t size, int operation, int x)
         return count;
 }
 
+/**
+* Searches an array for a value
+* @param a The array
+* @param size The size of the array
+* @param search The value to search for 
+* @return The index of the first occurance of the value, -1 if not found
+*/
+
 int linear_search(int a[], size_t size, int search)
 {
         int i;
@@ -115,6 +150,12 @@ int linear_search(int a[], size_t size, int search)
 
         return -1;
 }
+
+/**
+* Bubble sorts an array
+* @param a the array
+* @param size the size of the array
+*/
 
 void bubble_sort(int a[], size_t size)
 {
@@ -138,6 +179,11 @@ void bubble_sort(int a[], size_t size)
         }
 }
 
+/**
+* Insertion sorts an array
+* @param a the array
+* @param size the size of the array
+*/
 void insertion_sort(int a[], size_t size)
 {
         int i;
@@ -163,6 +209,11 @@ void insertion_sort(int a[], size_t size)
         }
 }
 
+/**
+* Reverses an array
+* @param a the array
+* @param size the size of the array
+*/
 void reverse(int a[], size_t size)
 {
         int i;
@@ -175,6 +226,11 @@ void reverse(int a[], size_t size)
         }
 }
 
+/**
+* Finds the median of an array
+* @param a the array
+* @param size the size of the array
+*/
 int median(int a[], size_t size)
 {
         return size % 2

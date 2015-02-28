@@ -1,0 +1,1 @@
+While arrays can only contain a single type, structs can contain values of multiple data types. Stucts can contain default values upon initialization. Structs have name associated values.

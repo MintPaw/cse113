@@ -1,0 +1,14 @@
+Script started on Fri 27 Feb 2015 09:01:57 PM MST
+mintpaw@MintPaw-PC:~/cse113/lab4$ gcc -w[Kg -w[KWall lab4_q2.c -o lab4_q2
+mintpaw@MintPaw-PC:~/cse113/lab4$ ./lab4_q2 
+RED = 18
+ORANGE = 19
+YELLOW = 5
+GREEN = 6
+BLUE = 7
+INDIGO = 14
+VIOLET = 15
+mintpaw@MintPaw-PC:~/cse113/lab4$ exit
+exit
+
+Script done on Fri 27 Feb 2015 09:02:11 PM MST

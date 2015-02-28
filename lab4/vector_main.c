@@ -1,4 +1,6 @@
 #include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
 #include "vector.h"
 #include "string.h"
 
@@ -8,6 +10,8 @@ void print_array(int array[], int size);
 
 int main(void)
 {
+        srandom(time(NULL));
+
         int a1[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 3 };
         int a2[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 3 };
         int a3[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 3 };
@@ -19,6 +23,7 @@ int main(void)
         int a6[] = { 1, 2, 3, 4, 5 };
         int b6[] = { 6, 7, 8, 9, 10 };
         int c6[5];
+        int a7[10];
         int size_10int = sizeof(a1) / sizeof(a1[0]);
         int size_5int = sizeof(a6) / sizeof(a6[0]);
 
@@ -58,9 +63,14 @@ int main(void)
         printf("\nInsvese multiplying arrays:\n");
         print_array(a6, size_5int);
         print_array(b6, size_5int);
-        multiply_arrays(a6, b6, c6, size_5int);
+        inversemul_arrays(a6, b6, c6, size_5int);
         printf("Result:\n");
         print_array(c6, size_5int);
+
+        printf("\nRandom array:\n");
+        generate_array(a7, 50);
+        print_array(a7, size_10int);
+
         return 0;
 }
 

@@ -1,4 +1,6 @@
 #include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
 
 /* Place all of your functions here for your Array Problems */
 
@@ -43,6 +45,15 @@ void inversemul_arrays(int array1[], int array2[], int array3[], int size)
         int i;
         for (i = 0; i < size; i++)
         {
-                array3[i] = array1[i] * array2[size - i];
+                array3[i] = array1[i] * array2[size - i - 1];
+        }
+}
+
+void generate_array(int a[], int x)
+{
+        int i;
+        for (i = 0; i < 10; i++)
+        {
+                a[i] = random() % x;
         }
 }

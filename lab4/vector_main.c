@@ -74,6 +74,11 @@ int main(void)
         return 0;
 }
 
+/**
+* Prints out an array
+* @param array The array to print
+* @param size The size of the array
+*/
 void print_array(int array[], int size)
 {
         printf("[");

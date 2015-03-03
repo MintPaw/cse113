@@ -1,0 +1,26 @@
+Script started on Mon 02 Mar 2015 10:46:08 AM MST
+mintpaw@MintPaw-Lappy:~/cse113/lab4$ gcc -g -Wall lab4_q4.c l[K-r[Ko a[Klab4_q4
+mintpaw@MintPaw-Lappy:~/cse113/lab4$ ./lab4_q4
+1. Enter date
+2. Exit
+Choice: 1
+Day: 29
+Month (1-12): 3
+Year: 1994
+March 29, Aries
+
+1. Enter date
+2. Exit
+Choice: 1
+Day: 18
+Month (1-12): 2
+Year: 1996
+Febuary 18, Aquarius
+
+1. Enter date
+2. Exit
+Choice: 2
+mintpaw@MintPaw-Lappy:~/cse113/lab4$ exit
+exit
+
+Script done on Mon 02 Mar 2015 10:46:39 AM MST

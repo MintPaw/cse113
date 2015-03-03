@@ -4,6 +4,12 @@
 
 /* Place all of your functions here for your Array Problems */
 
+/**
+* Multiplies an array by an integer
+* @param array The array to multiply
+* @param size The size of the array
+* @param multiplier The integer to multiply the array by
+*/
 void multiply_array(int array[], int size, int multiplier)
 {
         int i;
@@ -13,6 +19,12 @@ void multiply_array(int array[], int size, int multiplier)
         }
 }
 
+/**
+* Adds an integer to an array 
+* @param array The array to add to
+* @param size The size of the array
+* @param adder The integer to add to the array by
+*/
 void add_array(int array[], int size, int adder)
 {
         int i;
@@ -22,6 +34,13 @@ void add_array(int array[], int size, int adder)
         }
 }
 
+/**
+* Adds together two arrays
+* @param array1 The first array to add
+* @param array2 The second array to add
+* @param array3 The array to store the answer
+* @param size The size of the array
+*/
 void add_arrays(int array1[], int array2[], int array3[], int size)
 {
         int i;
@@ -31,6 +50,13 @@ void add_arrays(int array1[], int array2[], int array3[], int size)
         }
 }
 
+/**
+* Multiplies together two arrays
+* @param array1 The first array to multiply
+* @param array2 The second array to multiply
+* @param array3 The array to store the answer
+* @param size The size of the array
+*/
 void multiply_arrays(int array1[], int array2[], int array3[], int size)
 {
         int i;
@@ -40,6 +66,13 @@ void multiply_arrays(int array1[], int array2[], int array3[], int size)
         }
 }
 
+/**
+* Multiplies together two arrays inversly
+* @param array1 The first array to multiply
+* @param array2 The second array to multiply
+* @param array3 The array to store the answer
+* @param size The size of the array
+*/
 void inversemul_arrays(int array1[], int array2[], int array3[], int size)
 {
         int i;
@@ -49,6 +82,11 @@ void inversemul_arrays(int array1[], int array2[], int array3[], int size)
         }
 }
 
+/**
+* Generates an array filled with random integers between 0 and x
+* @param a An arrat
+* @param x The upper bounds to the random integer
+*/
 void generate_array(int a[], int x)
 {
         int i;

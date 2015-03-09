@@ -29,11 +29,14 @@ int main()
 
                         if (choice == 'y')
                         {
+                                zombie.blood = 0;
                                 printf("Please enter the number of toes the zombie had: ");
                                 fgets(input, 16, stdin);
                                 zombie.toes = atoi(input);
 
                         } else if (choice == 'n') {
+                                zombie.toes = 0;
+
                                 printf("Please enter the amount of blood: "); 
                                 fgets(input, 16, stdin);
                                 zombie.blood = atoi(input);
@@ -48,7 +51,7 @@ int main()
                         printf("7. Sunday\n");
                         printf("Please choose the day this zombie was encountered: ");
                         fgets(input, 16, stdin);
-                        zombie.toes = atoi(input);
+                        zombie.day = atoi(input);
 
                         printf("Enter the time this zombie was encountered (HH:MM:SS): ");
                         fgets(input, 16, stdin);
@@ -57,20 +60,22 @@ int main()
 
                         zombie_list[zombie_index++] = zombie;
                 } else if (choice == '2') {
-                        printf("#\ttoes\ttblood\ttime\n");
+                        printf("#\ttoes\tblood\ttime\n");
 
                         int i;
                         for (i = 0; i < zombie_index; i++)
                         {
                                 char time[64];
                                 get_time(zombie_list[i], time);
-                                printf("%d\t%d\t%lfml\t%s\n",
+                                printf("%d\t%d\t%0.1fml\t%s\n\n\n",
                                         i,
                                         get_toes(zombie_list[i]),
                                         get_blood(zombie_list[i]),
                                         time
                                         );
                         }
+                } else {
+                        return 0;
                 }
         }
 

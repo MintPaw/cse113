@@ -1,0 +1,62 @@
+Script started on Sun 08 Mar 2015 11:21:59 PM MDT
+bash-4.3$ gcc -g -Wall -c zombie.c [K; gcc -g -Wall lab5/.[K[K.c zombie.o -o lab5
+bash-4.3$ ./lab5 
+--- Zombie record keeping ---
+
+1. Enter new zombie information
+2. Display zombie information
+3. Return to fighting zombies (exit)
+Make a selection: 1
+Was the zombie found dead? (Y/N)
+Make a selection: y
+Please enter the number of toes the zombie had: 23
+1. Monday
+2. Tuesday
+3. Wednesday
+4. Thursday
+5. Friday
+6. Saturday
+7. Sunday
+Please choose the day this zombie was encountered: 1
+Enter the time this zombie was encountered (HH:MM:SS): 03:22:12
+--- Zombie record keeping ---
+
+1. Enter new zombie information
+2. Display zombie information
+3. Return to fighting zombies (exit)
+Make a selection: 1
+Was the zombie found dead? (Y/N)
+Make a selection: n
+Please enter the amount of blood: 34,2  .2
+1. Monday
+2. Tuesday
+3. Wednesday
+4. Thursday
+5. Friday
+6. Saturday
+7. Sunday
+Please choose the day this zombie was encountered: 7
+Enter the time this zombie was encountered (HH:MM:SS): 34:   33  15:22:30
+--- Zombie record keeping ---
+
+1. Enter new zombie information
+2. Display zombie information
+3. Return to fighting zombies (exit)
+Make a selection: 2
+#	toes	blood	time
+0	23	0.0ml	Monday - 3:22:12
+
+
+1	0	34.0ml	Sunday - 15:22:30
+
+
+--- Zombie record keeping ---
+
+1. Enter new zombie information
+2. Display zombie information
+3. Return to fighting zombies (exit)
+Make a selection: 3^C
+bash-4.3$ exit
+exit
+
+Script done on Sun 08 Mar 2015 11:23:15 PM MDT

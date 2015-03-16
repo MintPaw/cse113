@@ -1,0 +1,98 @@
+Script started on Wed 11 Mar 2015 10:28:46 AM MDT
+mintpaw@MintPaw-Lappy:~/cse113/midterm$ clear; gcc -g wa[KW[K[KWa[K[K-Wall -c functions.c [K; gcc -g _[K-Wall main.c if[K[Kfuncc[Ktions.o -o main
+[H[Jmintpaw@MintPaw-Lappy:~/cse113/midterm$ ./main
+
+
+1. Even number
+2. Max, min, average
+3. Enum
+4. Enter student data
+5. Display student data
+6. Exit
+Make a selection: 5
+id, grade1, grade2, average
+
+-1075448844, -1075448984, -1075448992, 0.0
+
+-1216399048, 0, 194, -0.0
+
+
+1. Even number
+2. Max, min, average
+3. Enum
+4. Enter student data
+5. Display student data
+6. Exit
+Make a selection: 1
+It's 224
+
+
+1. Even number
+2. Max, min, average
+3. Enum
+4. Enter student data
+5. Display student data
+6. Exit
+Make a selection: 2
+Min: 1
+Max: 987
+Average: 168
+
+
+1. Even number
+2. Max, min, average
+3. Enum
+4. Enter student data
+5. Display student data
+6. Exit
+Make a selection: 3
+POPCORN = 0
+SKITTLES = 1
+MNMS = 7
+SODA = 8
+HOTTAMALES = 9
+KETTLECORN = 2
+
+
+1. Even number
+2. Max, min, average
+3. Enum
+4. Enter student data
+5. Display student data
+6. Exit
+Make a selection: 4
+Give student data
+id: 1
+Grade 1: 20
+Grade 2: 90
+Give student data
+id: 2
+Grade 1: 90
+Grade 2: 100
+
+
+1. Even number
+2. Max, min, average
+3. Enum
+4. Enter student data
+5. Display student data
+6. Exit
+Make a selection: 5
+id, grade1, grade2, average
+
+1, 20, 90, 55.0
+
+2, 90, 100, 95.0
+
+
+1. Even number
+2. Max, min, average
+3. Enum
+4. Enter student data
+5. Display student data
+6. Exit
+Make a selection: 6
+mintpaw@MintPaw-Lappy:~/cse113/midterm$ exit
+exit
+
+Script done on Wed 11 Mar 2015 10:29:52 AM MDT

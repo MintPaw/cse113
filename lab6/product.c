@@ -9,7 +9,8 @@ int product(int a, int b)
        return a;
     else {
       mid = (a + b) / 2;
-      return product(a, mid) + product(mid,b);
+      //corrected Jeru Sanders 3/18/2015
+      return product(a, mid) * product(mid + 1, b);
    }   
 }
 

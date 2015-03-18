@@ -7,11 +7,13 @@ int main()
 	int a, b;
 	a = 0;
 	b = 1;
-	
-	p = a;
+
+	//corrected Jeru Sanders 3/18/2015
+	p = &a;
 	printf("%d\n", *p); 
 
-	b = &p;
+	//corrected Jeru Sanders 3/18/2015
+	//b = &p;
 	
 	printf("%d\n", b); 
 

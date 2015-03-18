@@ -1,0 +1,105 @@
+pcr@pcr-VirtualBox:~/cse113/lab6$ gcc -g -Wall product.c -o product                                                                                                                                                                          
+pcr@pcr-VirtualBox:~/cse113/lab6$ gdb product
+GNU gdb (Ubuntu 7.7-0ubuntu3) 7.7
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from product...done.
+(gdb) break product
+Breakpoint 1 at 0x40053c: file product.c, line 8.
+(gdb) s
+The program is not being run.
+(gdb) step
+The program is not being run.
+(gdb) r
+Starting program: /home/pcr/cse113/lab6/product 
+
+Breakpoint 1, product (a=5, b=10) at product.c:8
+8           if (a == b) 
+(gdb) print mid a b
+A syntax error in expression, near `a b'.
+(gdb) print mid; print a; print b;
+Invalid character ';' in expression.
+(gdb) printf "a: %d | b: %d | mid :%d", a, b, mid
+a: 5 | b: 10 | mid :0(gdb) printf "a: %d | b: %d | mid :%d\n", a, b, mid                                                                                                                                                                     
+a: 5 | b: 10 | mid :0
+(gdb) s
+11            mid = (a + b) / 2;
+(gdb) printf "a: %d | b: %d | mid :%d\n", a, b, mid
+a: 5 | b: 10 | mid :0                                                                                                                                                                                                                 
+(gdb) s
+12            return product(a, mid) + product(mid,b);
+(gdb) s
+
+Breakpoint 1, product (a=5, b=7) at product.c:8
+8           if (a == b) 
+(gdb) s
+11            mid = (a + b) / 2;
+(gdb) s
+12            return product(a, mid) + product(mid,b);
+(gdb) print mid
+$1 = 6
+(gdb) s
+
+Breakpoint 1, product (a=5, b=6) at product.c:8
+8           if (a == b) 
+(gdb) s
+11            mid = (a + b) / 2;
+(gdb) s
+12            return product(a, mid) + product(mid,b);
+(gdb) print mid
+$2 = 5
+(gdb) s
+
+Breakpoint 1, product (a=5, b=5) at product.c:8
+8           if (a == b) 
+(gdb) s
+9              return a;
+(gdb) s
+14      }
+(gdb) s
+
+Breakpoint 1, product (a=5, b=6) at product.c:8
+8           if (a == b) 
+(gdb) s
+11            mid = (a + b) / 2;
+(gdb) print mid
+$3 = 32767
+(gdb) s
+12            return product(a, mid) + product(mid,b);
+(gdb) print mid
+$4 = 5
+(gdb) s
+
+Breakpoint 1, product (a=5, b=5) at product.c:8
+8           if (a == b) 
+(gdb) s
+9              return a;
+(gdb) s
+14      }
+(gdb) s
+
+Breakpoint 1, product (a=5, b=6) at product.c:8
+8           if (a == b) 
+(gdb) bt 5
+#0  product (a=5, b=6) at product.c:8
+#1  0x000000000040057d in product (a=5, b=6) at product.c:12
+#2  0x000000000040057d in product (a=5, b=6) at product.c:12
+#3  0x000000000040056c in product (a=5, b=7) at product.c:12
+#4  0x000000000040056c in product (a=5, b=10) at product.c:12
+(More stack frames follow...)
+(gdb) k
+Kill the program being debugged? (y or n) q
+Please answer y or n.
+Kill the program being debugged? (y or n) y
+(gdb) q

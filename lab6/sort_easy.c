@@ -20,8 +20,8 @@ void sort(int a[], int n)
 
 		lowest_index = cur;
 		for (j = cur + 1; j < n; j++) {
-
-			if(a[j] < a[cur]) {
+			//corrected Jeru Sanders 3/18/2015
+			if(a[j] < a[cur] && a[j] < a[lowest_index]) {
 				lowest_index = j;
 			} 
 		}

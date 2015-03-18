@@ -1,0 +1,60 @@
+gdb commands:
+	file <file>:
+		Loads a file file and symbol table
+		If file is unspecified will ask to dumb the current file and symbol table
+
+	backtrace n (bt):
+		n specifies how many calls to show
+		Reveals the stack frames that got you to the current position
+
+	run <arg> (r):
+		Runs the loaded program with specified args
+
+	help <command> (h):
+		Provides a short summary of the usage of the command
+
+	break <line/function> <thread> <condition> (b):
+		Sets a breakpoint at the line or start of the function on the thread if the condition is true
+		The thread and condtion are optional
+
+	continue N (c):
+		Continues after a break point skipping N breakpoints
+
+	step N (s):
+		Runs the next N lines
+
+	bt full:
+		Backtraces all the available stack frames
+
+	print n (p):
+		Prints out the value of n
+
+	frame (f):
+		Prints out the current stack frame
+
+	kill (k):
+		Terminates the program
+
+	next N (n):
+		Does the same as step but will step over function calls rather than into them
+
+	info b:
+		Prints out all bookmarks
+
+	disable:
+		Disables most gdb debugging features
+
+	enable:
+		Enables most gdb debugging features
+
+	delete X (d):
+		Deletes X, where X can be a breakpoint, bookmark, memory region, checkpoint, or some other objects
+
+	watch n:
+		Pauses the program and prints n whenever it changes
+
+	Conditional breakpoints:
+		You can set a breakpoint at a certain line or function if a condition is true using the following syntax
+			break <line/function> if <condition>
+		Example:
+			break 10 if strcmp(y, "hello") == 0

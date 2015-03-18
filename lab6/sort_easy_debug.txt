@@ -1,0 +1,59 @@
+pcr@pcr-VirtualBox:~/cse113/lab6$ gdb sort_easy
+GNU gdb (Ubuntu 7.7-0ubuntu3) 7.7
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from sort_easy...done.
+(gdb) break sort
+Breakpoint 1 at 0x400538: file sort_easy.c, line 7.
+(gdb) r
+Starting program: /home/pcr/cse113/lab6/sort_easy 
+
+Breakpoint 1, sort (a=0x7fffffffdf50, n=4) at sort_easy.c:7
+7               for(cur = 0; cur < n - 1; cur++) {
+(gdb) n
+21                      lowest_index = cur;
+(gdb) 
+22                      for (j = cur + 1; j < n; j++) {
+(gdb) 
+24                              if(a[j] < a[cur]) {
+(gdb) 
+25                                      lowest_index = j;
+(gdb) 
+22                      for (j = cur + 1; j < n; j++) {
+(gdb) 
+24                              if(a[j] < a[cur]) {
+(gdb) 
+25                                      lowest_index = j;
+(gdb) 
+22                      for (j = cur + 1; j < n; j++) {
+(gdb) 
+24                              if(a[j] < a[cur]) {
+(gdb) 
+22                      for (j = cur + 1; j < n; j++) {
+(gdb) 
+33                      if (lowest_index != cur) {
+(gdb) info locals
+cur = 0
+j = 4
+lowest_index = 2
+tmp = 0
+(gdb) call print_array(a, n)
+4       2       3       4
+(gdb) kq
+Undefined command: "kq".  Try "help".
+(gdb) k
+Kill the program being debugged? (y or n) q
+Please answer y or n.
+Kill the program being debugged? (y or n) y
+(gdb) q

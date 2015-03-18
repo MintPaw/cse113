@@ -15,6 +15,8 @@ main()
 {
   char * message = NULL;
   char * msg = "Hello, world.";
+  //corrected Jeru Sanders 3/18/2015
+  message = msg;
 
   print_scrambled(msg);
   print_scrambled(message);

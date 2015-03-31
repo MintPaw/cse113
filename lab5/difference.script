@@ -1,0 +1,8 @@
+Script started on Mon 09 Mar 2015 05:39:38 AM MDT
+mintpaw@MintPaw-PC:~/cse113/lab5$ gcc -g -Wall difference.c -o difference
+mintpaw@MintPaw-PC:~/cse113/lab5$ ./difference 
+It's 25164150
+mintpaw@MintPaw-PC:~/cse113/lab5$ exit
+exit
+
+Script done on Mon 09 Mar 2015 05:39:58 AM MDT

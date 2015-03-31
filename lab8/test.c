@@ -3,7 +3,15 @@
 #include <stdlib.h>
 
 
-#define STRLEN
+// #define STRLEN
+// #define PSTRNCPY
+// #define PSTRCAT
+#define PSTRNCMP
+// #define PINDEX
+// #define PSQUEEZE
+// #define PREVERSE
+
+/* #define STRLEN */
 /* #define PSTRNCPY */
 /* #define PSTRCAT */
 /* #define PSTRNCMP */

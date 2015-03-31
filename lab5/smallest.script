@@ -1,0 +1,9 @@
+Script started on Mon 09 Mar 2015 05:24:07 AM MDT
+mintpaw@MintPaw-PC:~/cse113/lab5$ gcc -g -Wall ssm[K[Kmallest.c -o smallest
+mintpaw@MintPaw-PC:~/cse113/lab5$ ./smallest 
+It's 232792560
+mintpaw@MintPaw-PC:~/cse113/lab5$ Wow that took a long time^C
+mintpaw@MintPaw-PC:~/cse113/lab5$ exit
+exit
+
+Script done on Mon 09 Mar 2015 05:26:01 AM MDT

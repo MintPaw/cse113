@@ -1,0 +1,8 @@
+Script started on Mon 09 Mar 2015 06:11:22 AM MDT
+mintpaw@MintPaw-PC:~/cse113/lab5$ gcc -g -Wall sundays.c -o sundays
+mintpaw@MintPaw-PC:~/cse113/lab5$ ./sundays 
+It's 5165
+mintpaw@MintPaw-PC:~/cse113/lab5$ exit
+exit
+
+Script done on Mon 09 Mar 2015 06:11:36 AM MDT

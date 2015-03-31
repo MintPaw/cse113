@@ -3,8 +3,18 @@
 
 int str_len(char *s)
 {
-	/* this is so it compiles */
-	return 0;
+	int count = 0;
+	int i;
+	for (i = 0; ; i++)
+	{
+		if (*(s + i) == '\0')
+		{
+			break;
+		}
+
+		count++;
+	}
+	return count;
 }
 
 /* array version */
@@ -46,15 +56,63 @@ void reverse(char s[])
 	
 }
 
+int pstr_ncmp(char *s, char *t, int n)
+{
+	int i;
+	for (i = 0; i < n ; i++)
+	{
+		if (*(s + i) != *(t + i))
+		{
+			return 0;
+		}
+	}
+	return 1;
+}
+
 /* copy n chars of src into dest */
 void pstr_ncpy(char *dest, char *src, int n)
 {
+	int i;
 
+	for (i = 0; i < n ; i++)
+	{
+		*(dest + i) = *(src + i);
+		if (*(src + i) == '\0')
+		{
+			break;
+		}
+	}
 }
 
 /* concantenate t to the end of s; s must be big enough! */
 void pstr_cat(char *s, char *t)
 {
+	int i, j;
 
+	i = j = 0;
+	while(*(s + i) != '\0')
+	{
+		i++;
+	}
 
+	while((*(s + i++) = *(t + j++)) != '\0')
+	{
+	}
+}
+
+char *pindex(char *s, int c)
+{
+	int i;
+	for (i = 0; ; i++)
+	{
+		if (*(s + i) == c)
+		{
+			return s + i;
+		}
+
+		if (*(s + i) == '\0')
+		{
+			return NULL;
+		}
+	}
 }

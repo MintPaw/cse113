@@ -1,0 +1,32 @@
+1. 
+	x=2		y=-1	z=1
+	x=2		y=2		z=1
+	x=2		y=2		z=2
+	x=0		y=-1	z=0
+	x=0		y=0		z=-1
+	x=0		y=-1	z=-1
+
+2. Function names cannot have dashes like "OS_HP-UX_print()"
+
+3. It stdio.h was included it would just print the value 1 as you would only go through the loop once.
+
+4. It will be 1.1f because the loop loops 10 times and the value starts at 0.1f
+
+5. Obviously it's the 1,2 although I'm not sure what that's intended to be.
+
+6. 40, an int it 4 bytes and there are 10 of them, so 40.
+
+7. The extra space captures the space left in the buffer after the previous scanf, if it is removed then c will end up being a space character regardless.
+
+8. 
+	i : 10
+	sizeof(i++) is: 4
+	i : 11
+
+9. printf ("The date you have entered is %2d-%2d-%2d\n", day, month, year);
+
+10. for (i = 0; -i < n; i--)
+
+11. a is not initialized so most likely an error, although it may be an arbitrary number
+
+12. 8, the first test will fail and incitement i, the second test will succeed also incitementing i and invalidating the third test

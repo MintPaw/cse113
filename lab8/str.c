@@ -116,3 +116,30 @@ char *pindex(char *s, int c)
 		}
 	}
 }
+
+void psqueeze(char *s, int c)
+{
+	int i, j;
+	
+	for(i = j = 0; *(s + i) != '\0'; i++)
+	{
+		if (*(s + i) != c)
+		{
+			*(s + j++) = *(s + i);
+		}
+	}
+
+	*(s + j) = '\0';
+}
+
+void preverse(char *s)
+{
+	int c, i, j;
+
+	for(i = 0, j = str_len(s) - 1; i < j; i++, j-- ) {
+		/* change this so it calls cswap */
+		c = *(s + i);
+		*(s + i) = *(s + j);
+		*(s + j) = c;
+	}	
+}

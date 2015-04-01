@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-/* #include <string.h> */
-#include "str.h"
+#include <string.h>
 
 #define MALLOC_FAILED 1000
 
@@ -13,7 +12,7 @@ int main(void)
 	
 	char *u;
 
-	size_t len = str_len(s) + str_len(t) + 1; /* 1 for the NULL char */
+	size_t len = strlen(s) + strlen(t) + 1; /* 1 for the NULL char */
 
 	/* how many objects times the size of the object */
 	u = malloc(len * sizeof(char)); 
@@ -25,13 +24,13 @@ int main(void)
 	}
 	
         /* the + 1 makes room for the null terminator */
-	pstr_ncpy(u, s, str_len(s) + 1); 
+	strncpy(u, s, strlen(s) + 1); 
 	printf("u = \"%s\"\n", u);
 	
-	pstr_cat(u, t);
+	strcat(u, t);
 	printf("u = \"%s\"\n", u);
 	
-	//free(u);		/* you allocated it you free it */
+	free(u);		/* you allocated it you free it */
 
 	return 0;
 }

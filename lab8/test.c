@@ -2,16 +2,7 @@
 #include "str.h"
 #include <stdlib.h>
 
-
-// #define STRLEN
-// #define PSTRNCPY
-// #define PSTRCAT
-#define PSTRNCMP
-// #define PINDEX
-// #define PSQUEEZE
-// #define PREVERSE
-
-/* #define STRLEN */
+#define STRLEN
 /* #define PSTRNCPY */
 /* #define PSTRCAT */
 /* #define PSTRNCMP */
@@ -104,7 +95,7 @@ int main(void)
 	
 	printf("searching for %c in \"%s\"\n", c, s);
 	if (t != NULL)
-		printf("%c is located at address %p\nwhich is %ld bytes from the base address %p\n", c, t, t - s, s);
+		printf("%c is located at address %p\nwhich is %d bytes from the base address %p\n", c, t, t - s, s);
 	else 
 		printf("char %c not found in \"%s\"\n", c, s);
 
@@ -112,7 +103,7 @@ int main(void)
 	t = pindex(s, c);
 	printf("searching for %c in \"%s\"\n", c, s);
 	if (t != NULL)
-		printf("%c is located at address %p\nwhich is %ld bytes from the base address %p\n", c, t, t - s, s);
+		printf("%c is located at address %p\nwhich is %d bytes from the base address %p\n", c, t, t - s, s);
 	else 
 		printf("char %c not found in \"%s\"\n", c, s);
 #endif

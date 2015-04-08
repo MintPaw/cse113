@@ -1,0 +1,131 @@
+1.
+// Before
+head = D
+D->next = C
+D->next = B
+D->next = G
+tail = G
+
+// Operation
+H = malloc(node_t)
+tail->next = H
+tail = H
+
+// After
+head = D
+D->next = C
+D->next = B
+D->next = G
+G->next = H
+tail = H
+
+2.
+// Before
+head = A
+A->next = B
+B->next = C
+C->next = D
+tail = D
+
+// Operation
+E = malloc(node_t)
+head->next->next->next->next = E
+tail = E
+
+// After
+head = A
+A->next = B
+B->next = C
+C->next = D
+D->next = E
+tail = D
+
+3.
+// Before
+head = A
+A->next = D
+D->next = C
+C->next = H
+H->next = E
+E->next = F
+tail = F
+
+// Operation
+Z = malloc(node_t)
+head->next = Z
+head->next->next = head->next->next->next
+head->next->next->next = head->next->next->next->next
+head->next->next->next->next = head->next->next->next->next->next
+head->next->next->next->next->next = head->next->next->next->next->next->next
+head->next->next->next->next->next->next = head->next->next->next->next->next->next->next
+
+// After
+head = A
+A->next = Z
+Z->next = D
+D->next = C
+C->next = H
+H->next = E
+E->next = F
+tail = F
+
+4->
+//Before
+head = D
+D->next = E
+E->next = F
+F->next = G
+H->next = I
+I->next = J
+J->next = K
+tail = K
+
+// Operation
+free(head->next->next->next)
+head->next->next = I
+
+// After
+head = D
+D->next = E
+E->next = H
+H->next = I
+I->next = J
+J->next = K
+tail = K
+
+// This is the point that I realized I could reference the elements individually
+5.
+// Before
+head = A
+A->next = B
+B->next = C
+C->next = D
+tail = D
+
+// Operation
+free(A)
+head = B
+
+// After
+head = B
+B->next = C
+C->next = D
+tail = D
+
+6.
+// Before
+head = A
+A->next = B
+B->next = C
+C->next = D
+tail = D
+
+// Operaion
+free(D)
+tail = C
+
+// After
+head = A
+A->next = B
+B->next = C
+tail = C

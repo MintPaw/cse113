@@ -1,3 +1,13 @@
+/**
+* @file lists.c
+* @brief Does linked lists operations
+*
+* @author Jeru Sanders
+* @date 10/4/15
+* @todo none
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -8,44 +18,65 @@ struct node_t
 };
 
 void newline();
+void print_node_detail(struct node_t *node);
+void print_list_detail(struct node_t *head);
 struct node_t *create_node(double n);
 void print_node(struct node_t *node);
 void print_list(struct node_t *head);
 struct node_t *insert_head(struct node_t *head , struct node_t *node);
 struct node_t *insert_tail(struct node_t *head , struct node_t *node);
 struct node_t *insert_middle(struct node_t *head , struct node_t *node, int pos);
-// int count_nodes(struct node_t *head);
-// struct node_t *delete_node(struct node_t *head , double n);
-// void delete_list(struct node_t *head);
+int count_nodes(struct node_t *head);
+struct node_t *delete_node(struct node_t *head , double n);
+void delete_list(struct node_t *head);
 
 int main()
 {
-	struct node_t *head = NULL, *tail = NULL;
+	struct node_t *head = NULL;
 
-	head = create_node(1);
+	printf("First Node:\n");
+
+	head = create_node(2.0);
+	print_node_detail(head);
+
+	head = insert_head(head, create_node(1.0));
+	head = insert_middle(head, create_node(1.5), 2);
 	head = insert_tail(head, create_node(2));
-	head = insert_tail(head, create_node(4));
-	head = insert_tail(head, create_node(5));
+	printf("Detailed list after inserts:\n");
+	print_list_detail(head);
 
-	head = insert_middle(head, create_node(3), 2);
-	print_list(head);
-	newline();
+	delete_node(head, 1.5);
+	printf("Detailed list after delete:\n");
+	print_list_detail(head);
+
+	delete_list(head);
 
 	return 0;
 }
 
-void newline()
-{
-	printf("\n");
-}
-
+/**
+* Creates a node
+* @param n The value of the double in the node
+* @return The node
+*/
 struct node_t *create_node(double n)
 {
 	struct node_t *node = malloc(sizeof(struct node_t));
+	if (node == NULL)
+	{
+		printf("Malloc failed");
+		return NULL;
+	}
 	node->x = n;
+	node->next = NULL;
 	return node;
 }
 
+/**
+* Prints the value in a node
+* @param n The value of the double in the node
+* @return The node
+*/
 void print_node(struct node_t *node)
 {
 	printf("%lf", node->x);
@@ -53,39 +84,43 @@ void print_node(struct node_t *node)
 
 void print_list(struct node_t *head)
 {
-	struct node_t *currentNode = head;
+	struct node_t *current_node = head;
 	
-	while (currentNode)
+	while (current_node)
 	{
-		if (currentNode != head)
+		if (current_node != head)
 		{
 			printf(", ");
 		}
 
-		print_node(currentNode);
-		currentNode = currentNode->next;
+		print_node(current_node);
+		current_node = current_node->next;
 	}
 }
 
 struct node_t *insert_head(struct node_t *head , struct node_t *node)
 {
-	node->next = head;
 	return node;
 }
 
 struct node_t *insert_tail(struct node_t *head , struct node_t *node)
 {
-	struct node_t *currentNode = head;
-	
-	while (currentNode)
+	if (!head)
 	{
-		if (!currentNode->next)
+		return node;
+	}
+
+	struct node_t *current_node = head;
+	
+	while (current_node)
+	{
+		if (!current_node->next)
 		{
-			currentNode->next = node;
+			current_node->next = node;
 			break;
 		}
 
-		currentNode = currentNode->next;
+		current_node = current_node->next;
 	}
 
 	return head;
@@ -93,24 +128,125 @@ struct node_t *insert_tail(struct node_t *head , struct node_t *node)
 
 struct node_t *insert_middle(struct node_t *head , struct node_t *node, int pos)
 {
-	struct node_t *currentNode = head;
-	struct node_t *nextNode = head;
-	int i;
-	
-	for (i = 0; i < pos - 1; i++)
+	if (pos < 1)
 	{
-		currentNode = currentNode->next;
-		if (currentNode->next)
-		{
-			nextNode = currentNode->next->next;
-		}
+		printf("Value must be above one");
+		return head;
 	}
 
-	currentNode->next = node;
-	if (nextNode)
+	if (!head)
 	{
-		node->next = nextNode;
+		return node;
+	}
+
+	struct node_t *current_node = head;
+	struct node_t *next_node = NULL;
+	int i = 1;
+	
+	while (i < pos - 1)
+	{
+		current_node = current_node->next;
+		i++;
+	}
+
+	next_node = current_node->next;
+	current_node->next = node;
+	if (next_node)
+	{
+		node->next = next_node;
 	}
 
 	return head;
+}
+
+int count_nodes(struct node_t *head)
+{
+	int count = 1;
+
+	struct node_t *current_node = head;
+	while (current_node->next)
+	{
+		count++;
+		current_node = current_node->next;
+	}
+
+	return count;
+}
+
+struct node_t *delete_node(struct node_t *head , double n)
+{
+	struct node_t *current_node = head;
+	struct node_t *prev_node = NULL;
+	struct node_t *next_node = NULL;
+
+	while(current_node->x != n)
+	{
+		prev_node = current_node;
+		current_node = current_node->next;
+
+		if (current_node == NULL)
+		{
+			return head;
+		}
+	}
+
+	next_node = current_node->next;
+	if (prev_node)
+	{
+		prev_node->next = NULL;
+	}
+
+	if (prev_node && next_node)
+	{
+		prev_node->next = next_node;
+	} else if (!prev_node && next_node) {
+		head = current_node->next;
+	}
+
+	free(current_node);
+
+	return head;
+}
+
+void delete_list(struct node_t *head)
+{
+	struct node_t *current_node = head;
+	struct node_t *prev_node = NULL;
+
+	while(current_node)
+	{
+		prev_node = current_node;
+		current_node = current_node->next;
+
+		free(prev_node);
+	}
+}
+
+/**
+* Prints a new line
+*/
+void newline()
+{
+	printf("\n");
+}
+
+void print_node_detail(struct node_t *node)
+{
+	if (node->next)
+	{
+		printf("{ x: %lf, next: %p } at: %p\n", node->x, node->next, node);
+	} else {
+		printf("{ x: %lf, next: %s } at: %p\n", node->x, "NULL", node);
+	}
+}
+
+void print_list_detail(struct node_t *head)
+{
+	struct node_t *current_node = head;
+	
+	while (current_node)
+	{
+		print_node_detail(current_node);
+		current_node = current_node->next;
+	}
 }

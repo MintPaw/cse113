@@ -74,14 +74,17 @@ struct node_t *create_node(double n)
 
 /**
 * Prints the value in a node
-* @param n The value of the double in the node
-* @return The node
+* @param node The node
 */
 void print_node(struct node_t *node)
 {
 	printf("%lf", node->x);
 }
 
+/**
+* Prints the values of all the nodes in a list
+* @param head The head of the list
+*/
 void print_list(struct node_t *head)
 {
 	struct node_t *current_node = head;
@@ -98,11 +101,24 @@ void print_list(struct node_t *head)
 	}
 }
 
+/**
+* Adds a node to the start of a linked list
+* @param head The head of the list
+* @param node The node to add
+* @return The new head
+*/
 struct node_t *insert_head(struct node_t *head , struct node_t *node)
 {
+	node->next = head;
 	return node;
 }
 
+/**
+* Adds a node to the end of a linked list
+* @param head The head of the list
+* @param node The node to add
+* @return The new head
+*/
 struct node_t *insert_tail(struct node_t *head , struct node_t *node)
 {
 	if (!head)
@@ -126,6 +142,13 @@ struct node_t *insert_tail(struct node_t *head , struct node_t *node)
 	return head;
 }
 
+/**
+* Adds a node to the middle of a linked list
+* @param head The head of the list
+* @param node The node to add
+* @param pos The position to add the node
+* @return The new head
+*/
 struct node_t *insert_middle(struct node_t *head , struct node_t *node, int pos)
 {
 	if (pos < 1)
@@ -159,6 +182,11 @@ struct node_t *insert_middle(struct node_t *head , struct node_t *node, int pos)
 	return head;
 }
 
+/**
+* Returns the number of nodes in the list
+* @param head The head of the list
+* @return The number of nodes
+*/
 int count_nodes(struct node_t *head)
 {
 	int count = 1;
@@ -173,6 +201,12 @@ int count_nodes(struct node_t *head)
 	return count;
 }
 
+/**
+* Removes a node from a list and frees it
+* @param head The head of the list
+* @param n The value of node to be removed
+* @return The new head
+*/
 struct node_t *delete_node(struct node_t *head , double n)
 {
 	struct node_t *current_node = head;
@@ -208,6 +242,10 @@ struct node_t *delete_node(struct node_t *head , double n)
 	return head;
 }
 
+/**
+* Removes all nodes from a list and frees them
+* @param head The head of the list
+*/
 void delete_list(struct node_t *head)
 {
 	struct node_t *current_node = head;
@@ -230,6 +268,10 @@ void newline()
 	printf("\n");
 }
 
+/**
+* Prints the details of a node
+* @param node The node to print
+*/
 void print_node_detail(struct node_t *node)
 {
 	if (node->next)
@@ -240,6 +282,10 @@ void print_node_detail(struct node_t *node)
 	}
 }
 
+/**
+* Runs print_node_detail on every node in a list
+* @param head The head of the list
+*/
 void print_list_detail(struct node_t *head)
 {
 	struct node_t *current_node = head;

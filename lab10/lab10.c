@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <ctype.h>
 #include "binary.h"
 
@@ -46,19 +47,19 @@ int main()
 	printf("Unsigned [y/N]: ");
 	get_real_char(&input_char);
 	// TODO(jeru): String equality
-	cpu.unsign = tolower((int)input_char) == "y";
+	cpu.unsign = input_char == 'y';
 
 	printf("Give expression: ");
-	get_real_char(&input_char);
-	cpu.unsign = tolower(input_char) == "y";
+	fgets(input_string, 64, stdin);
+	cpu.unsign = input_char == 'y';
 
-	char bin_string_0[64];
-	char bin_string_1[64];
-	char op;
+	char *bin_string_0;
+	char *bin_string_1;
+	char *op;
 
 	bin_string_0 = strtok(input_string, "-");
-	op = strtok(NULL);
-	bin_string_1 = strtok(NULL);
+	op = strtok(NULL, "-");
+	bin_string_1 = strtok(NULL, "-");
 
 	return 0;
 }

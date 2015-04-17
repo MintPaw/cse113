@@ -21,7 +21,7 @@ struct bit_t *string_to_bit_list(char *string_temp, int size)
 	struct bit_t *head = malloc(sizeof(struct bit_t));
 	struct bit_t *prev_node = NULL;
 	struct bit_t *current_node = head;
-	char string[66] = "";
+	char string[256] = "";
 
 	while (strlen(string) < 
 		size - strlen(string_temp))
@@ -111,7 +111,7 @@ void print_register_neat(struct bit_t *head)
 
 struct bit_t *empty_bit_list(int size)
 {
-	char string[66];
+	char string[128];
 
 	int i;
 	for (i = 0; i < size; i++)
@@ -279,15 +279,18 @@ int add_registers(struct bit_t *head1,
 				 get_value(head2, i) + 
 				 carry;
 
-		carry = 0;
-
-		if (result == 3)
+		if (result > 1)
 		{
-			result = 1;
-			carry = 2;
-		} else if (result == 2) {
-			result = 0;
+			if (result % 2)
+			{
+				result = 1;
+			} else {
+				result = 0;
+			}
+
 			carry = 1;
+		} else {
+			carry = 0;
 		}
 
 		set_value(head3, i, result);
@@ -315,4 +318,51 @@ struct bit_t *clone_list(struct bit_t *head)
 		current_main = current_main->next;
 		current_clone = current_clone->next;
 	}
+}
+
+void print_dashes(int size)
+{
+	int i;
+	for (i = 0; i < size; i++)
+	{
+		printf("-");
+	}
+	printf("\n\n");
+}
+
+int register_to_int(struct bit_t *head, char unsign)
+{
+	struct bit_t *current_node = head;
+	char str[256] = "";
+	int dec = 0;
+	char comp = 0;
+
+	if (!unsign && current_node->n == 1)
+	{
+		comp = 1;
+	}
+
+	for (;;)
+	{
+		if (current_node == NULL) break;
+
+		if (current_node->n == 0)
+		{
+			strcat(str, "0");
+		} else if (current_node->n == 1) {
+			strcat(str, "1");
+		}
+
+		current_node = current_node->next;
+	}
+
+	dec = (int)strtol(str, NULL, 2);
+
+	if (comp)
+	{
+		printf("Comping");
+		dec = ~dec;
+	}
+
+	return dec;
 }

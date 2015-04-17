@@ -46,3 +46,5 @@ int add_registers(struct bit_t *head1,
 void and(struct cpu_t *cpu);
 void or(struct cpu_t *cpu);
 void xor(struct cpu_t *cpu);
+void print_dashes(int size);
+int register_to_int(struct bit_t *head, char unsign);

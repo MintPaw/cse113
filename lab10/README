@@ -1,0 +1,5 @@
+I'm actually not sure why I would use double linked lists in the program.
+
+I can see how it could be useful if you were doing some kind of sorting where you had to traverse the nodes back and forth. But the way you compute binary is really linear, so I don't find the prev node useful.
+
+A downside is that it take a good chunk of extra memory to create double linked lists.

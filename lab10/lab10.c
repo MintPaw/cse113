@@ -101,5 +101,13 @@ expression:
 		register_to_int(cpu.r3_head, cpu.unsign));
 	print_flags(&cpu);
 
+	printf("\n\n");
+	printf("Again? [Y/n]: ");
+	get_real_char(&input_char);
+	if (input_char == 'n') return 0;
+
+	printf("\n\n");
+	goto(word_size);
+
 	return 0;
 }

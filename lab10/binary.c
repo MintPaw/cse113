@@ -16,6 +16,12 @@ void get_real_char(char *c)
 	}
 }
 
+/**
+* Converts a string into a double linked list of bit_t's
+* @param string_temp The binary string you would like to convert.
+* @param size The word size for 0 padding
+* @return The head of the bit_t list
+*/
 struct bit_t *string_to_bit_list(char *string_temp, int size)
 {
 	struct bit_t *head = malloc(sizeof(struct bit_t));
@@ -50,6 +56,11 @@ struct bit_t *string_to_bit_list(char *string_temp, int size)
 	return head;
 }
 
+/**
+* Returns the tail of a bit_t list
+* @param head The head of the list
+* @return The tail node of the list
+*/
 struct bit_t *get_tail(struct bit_t *head)
 {
 	struct bit_t *current_node = head;
@@ -65,6 +76,9 @@ struct bit_t *get_tail(struct bit_t *head)
 	}
 }
 
+/**
+* --------------------------------------------------------------------
+*/
 void print_node(struct bit_t *node)
 {
 	printf("n = %d\tprev = %p\tnext = %p\tloc = %p\n"
@@ -128,12 +142,6 @@ void add(struct cpu_t *cpu)
 							   cpu->r2_head,
 							   cpu->r3_head,
 							   cpu->word_size) > 0;
-
-	cpu->overflow = 0;
-	if (!cpu->unsign)
-	{
-		// Do overflow
-	}
 
 	set_flags(cpu);
 }
@@ -232,6 +240,20 @@ void set_flags(struct cpu_t *cpu)
 		{
 			ones++;
 		}
+	}
+
+	if (cpu->r1_head.n == 0 &&
+		cpu->r2_head.n == 0 &&
+		cpu->r3_head.n == 1)
+	{
+		cpu->overflow = 1;
+	} else if (cpu->r1_head.n == 1 &&
+			   cpu->r2_head.n == 1 &&
+			   cpu->r3_head.n == 0)
+	{
+		cpu->overflow = 1;
+	} else {
+		cpu->overflow = 0;
 	}
 
 	cpu->zero = ones == 0;

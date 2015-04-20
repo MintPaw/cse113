@@ -16,10 +16,10 @@ word_size:
 	fgets(input_string, 128, stdin);
 	cpu.word_size = atoi(input_string);
 
-	if (cpu.word_size > 64 && cpu.word_size < 1)
+	if (cpu.word_size > 64 || cpu.word_size < 1)
 	{
-		goto word_size;
 		printf("Word size must be between 1 and 64 bits\n");
+		goto word_size;
 	}
 
 	printf("Unsigned [y/N]: ");
@@ -107,7 +107,7 @@ expression:
 	if (input_char == 'n') return 0;
 
 	printf("\n\n");
-	goto(word_size);
+	goto word_size;
 
 	return 0;
 }

@@ -77,7 +77,8 @@ struct bit_t *get_tail(struct bit_t *head)
 }
 
 /**
-* --------------------------------------------------------------------
+* Prints out information about a node
+* @param node The node to get info on
 */
 void print_node(struct bit_t *node)
 {
@@ -85,11 +86,19 @@ void print_node(struct bit_t *node)
 		, node->n, node->prev, node->next, node);
 }
 
+/**
+* Prints out the value of the nude
+* @param node The node to get the value on
+*/
 void print_node_neat(struct bit_t *node)
 {
 	printf("%d", node->n);
 }
 
+/**
+* Call print_node on every node in a list
+* @param head The head node of hte list
+*/
 void print_register(struct bit_t *head)
 {
 	struct bit_t *current_node = head;
@@ -106,6 +115,10 @@ void print_register(struct bit_t *head)
 	}
 }
 
+/**
+* Call print_node_neat on every node in a list
+* @param head The head node of hte list
+*/
 void print_register_neat(struct bit_t *head)
 {
 	struct bit_t *current_node = head;
@@ -123,6 +136,11 @@ void print_register_neat(struct bit_t *head)
 	}
 }
 
+/**
+* Creates an empty bit list
+* @param size The word size
+* @return The head of the list
+*/
 struct bit_t *empty_bit_list(int size)
 {
 	char string[128];
@@ -136,6 +154,10 @@ struct bit_t *empty_bit_list(int size)
 	return string_to_bit_list(string, size);
 }
 
+/**
+* Preforms the add function on the cpu
+* @param cpu The cpu to preform the action on
+*/
 void add(struct cpu_t *cpu)
 {
 	cpu->carry = add_registers(cpu->r1_head,
@@ -146,12 +168,20 @@ void add(struct cpu_t *cpu)
 	set_flags(cpu);
 }
 
+/**
+* Preforms the subtract function on the cpu
+* @param cpu The cpu to preform the action on
+*/
 void subtract(struct cpu_t *cpu)
 {
 	complement_r2(cpu);
 	add(cpu);
 }
 
+/**
+* Preforms the and function on the cpu
+* @param cpu The cpu to preform the action on
+*/
 void and(struct cpu_t *cpu)
 {
 	int i;
@@ -169,6 +199,10 @@ void and(struct cpu_t *cpu)
 	cpu->carry = 0;
 }
 
+/**
+* Preforms the or function on the cpu
+* @param cpu The cpu to preform the action on
+*/
 void or(struct cpu_t *cpu)
 {
 	int i;
@@ -186,6 +220,10 @@ void or(struct cpu_t *cpu)
 	cpu->carry = 0;
 }
 
+/**
+* Preforms the xor function on the cpu
+* @param cpu The cpu to preform the action on
+*/
 void xor(struct cpu_t *cpu)
 {
 	int i;
@@ -203,6 +241,12 @@ void xor(struct cpu_t *cpu)
 	cpu->carry = 0;
 }
 
+/**
+* Gets a value in a linked list by index
+* @param head The head of the list
+* @param index The index to get
+* @return The value of the node
+*/
 char get_value(struct bit_t *head, int index)
 {
 	struct bit_t *current_node = head;
@@ -216,6 +260,12 @@ char get_value(struct bit_t *head, int index)
 	return current_node->n;
 }
 
+/**
+* Sets a value in a linked list by index
+* @param head The head of the list
+* @param index The index to get
+* @param value The value to assign the the node
+*/
 void set_value(struct bit_t *head, int index, char value)
 {
 	struct bit_t *current_node = head;
@@ -229,6 +279,10 @@ void set_value(struct bit_t *head, int index, char value)
 	current_node->n = value;
 }
 
+/**
+* Sets the flags on the cpu
+* @param cpu The cpu to set flags on
+*/
 void set_flags(struct cpu_t *cpu)
 {
 	int ones = 0;
@@ -242,14 +296,14 @@ void set_flags(struct cpu_t *cpu)
 		}
 	}
 
-	if (cpu->r1_head.n == 0 &&
-		cpu->r2_head.n == 0 &&
-		cpu->r3_head.n == 1)
+	if (cpu->r1_head->n == 0 &&
+		cpu->r2_head->n == 0 &&
+		cpu->r3_head->n == 1)
 	{
 		cpu->overflow = 1;
-	} else if (cpu->r1_head.n == 1 &&
-			   cpu->r2_head.n == 1 &&
-			   cpu->r3_head.n == 0)
+	} else if (cpu->r1_head->n == 1 &&
+			   cpu->r2_head->n == 1 &&
+			   cpu->r3_head->n == 0)
 	{
 		cpu->overflow = 1;
 	} else {
@@ -262,12 +316,21 @@ void set_flags(struct cpu_t *cpu)
 	cpu->carry = cpu->carry > 0;
 }
 
+
+/**
+* Prints out the flags
+* @param cpu The cpu to get flags from
+*/
 void print_flags(struct cpu_t *cpu)
 {
 	printf("flags:\noverflow: %d\ncarry: %d\nsign: %d\nparity: %d\nzero: %d\n",
 		cpu->overflow, cpu->carry, cpu->sign, cpu->parity, cpu->zero);
 }
 
+/**
+* Converts the value in r2 to it's complement
+* @param cpu The cpu to preform the action on
+*/
 void complement_r2(struct cpu_t *cpu)
 {
 	struct bit_t *current_node = cpu->r2_head;
@@ -287,6 +350,14 @@ void complement_r2(struct cpu_t *cpu)
 	add(cpu);
 }
 
+/**
+* Adds together two registers
+* @param head1 The first register to add
+* @param head2 The second register to add
+* @param head3 The register to store the value in
+* @param size The word size
+* @return The value of the carry bit
+*/
 int add_registers(struct bit_t *head1,
 				  struct bit_t *head2,
 				  struct bit_t *head3,
@@ -321,6 +392,11 @@ int add_registers(struct bit_t *head1,
 	return carry;
 }
 
+/**
+* Clones a list
+* @param head The head of the list to clone
+* @return The head of the new list
+*/
 struct bit_t *clone_list(struct bit_t *head)
 {
 	struct bit_t *clone_head = malloc(sizeof(struct bit_t));
@@ -342,6 +418,10 @@ struct bit_t *clone_list(struct bit_t *head)
 	}
 }
 
+/**
+* Prints X dashes in a row
+* @param size How many dashes to print
+*/
 void print_dashes(int size)
 {
 	int i;
@@ -352,6 +432,12 @@ void print_dashes(int size)
 	printf("\n\n");
 }
 
+/**
+* Converts a list of bit_t's to an int
+* @param head The head of the list to convert
+* @param unsign If the value is unsigned
+* @return The integer representation
+*/
 int register_to_int(struct bit_t *head, char unsign)
 {
 	struct bit_t *current_node = head;

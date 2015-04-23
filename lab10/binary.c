@@ -468,7 +468,6 @@ int register_to_int(struct bit_t *head, char unsign)
 
 	if (comp)
 	{
-		printf("Comping");
 		dec = ~dec;
 	}
 

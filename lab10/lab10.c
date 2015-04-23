@@ -12,6 +12,8 @@ int main()
 	char input_char;
 
 word_size:
+	input_char = ' ';
+
 	printf("Give word size: ");
 	fgets(input_string, 128, stdin);
 	cpu.word_size = atoi(input_string);
@@ -24,7 +26,12 @@ word_size:
 
 	printf("Unsigned [y/N]: ");
 	get_real_char(&input_char);
-	cpu.unsign = input_char == 'y';
+	if (input_char == 'y')
+	{
+		cpu.unsign = 1;
+	} else {
+		cpu.unsign = 0;
+	}
 
 expression:
 	printf("Give expression: ");

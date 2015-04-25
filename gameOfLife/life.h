@@ -1,7 +1,9 @@
 #ifndef LIFE_H_
 #define LIFE_H_
 
-void parse_file(int width, int height, FILE *file, char a[height][width]);
-void print_2d_array(int width, int height, char a[height][width]);
+#include "matrix.h"
+
+void parse_file(int width, int height, FILE *file, struct Matrix *m);
+void compute_matrix(struct Matrix *start, struct Matrix *end);
 
 #endif

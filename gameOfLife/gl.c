@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <unistd.h>
 #include "SDL2/SDL.h" 
 #include "sdl.h"
 #include "life.h"
@@ -10,8 +11,8 @@ int main(int argc, char *argv[])
 	int width = 800;
 	int height = 600;
 	int sprite_size = 1; /* either 2, 4, 8, or 16 */
-	//int m = -66;
-	//int n = -10;
+	int start_x = 0;
+	int start_y = 0;
         /* colors are RGB model valid values [0, 255] */
 	unsigned char red = 140;
 	unsigned char green = 145;
@@ -19,17 +20,53 @@ int main(int argc, char *argv[])
 	struct sdl_info_t sdl_info; /* this is needed to graphically display the game */
         
 	/* set up SDL -- works with SDL2 */
-	init_sdl_info(&sdl_info, width, height, sprite_size, red, green, blue);
+	
 
 	/* your life initialization code here */
+
+	char file_path[265];
+	int c;
+	while ((c = getopt(argc, argv, "w:h:e:r:g:b:s:f:o:H")) != -1)
+	{
+		if (c == 'f')
+		{
+			strcpy(file_path, optarg);
+		} else if (c == 'w') {
+			width = atoi(optarg);
+		} else if (c == 'h') {
+			height = atoi(optarg);
+		} else if (c == 'r') {
+			red = atoi(optarg);
+		} else if (c == 'g') {
+			green = atoi(optarg);
+		} else if (c == 'b') {
+			blue = atoi(optarg);
+		} else if (c == 's') {
+			sprite_size = atoi(optarg);
+		} else if (c == 'o') {
+			sscanf(optarg, "%d,%d", &start_x, &start_y);
+		}
+	}
+
+	printf("Starting...\n");
+	printf("width: %d\nheight: %d\nred: %d\ngreen: %d\nblue: %d\norigin: %d,%d\nfile: %s\n",
+		width,
+		height,
+		red,
+		green,
+		blue,
+		start_x,
+		start_y,
+		file_path);
 	
 	struct Matrix matrix1;
 	struct Matrix matrix2;
 	setup_matrix(width / 2, height / 2, FULL, &matrix1);
 	setup_matrix(width / 2, height / 2, FULL, &matrix2);
 
-	parse_file(width, height, fopen(argv[1], "r"), &matrix1);
-	//set_value(400, 0, 1, &matrix1);
+	parse_file(width, height, fopen(file_path, "r"), &matrix1);
+
+	init_sdl_info(&sdl_info, width, height, sprite_size, red, green, blue);
 
 	/* Main loop: loop forever. */
 	while (1)

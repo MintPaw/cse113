@@ -7,12 +7,12 @@ void setup_matrix(int width, int height, char wrapping, struct Matrix *m)
 	m->width = width;
 	m->height = height;
 	m->wrapping_mode = wrapping;
-	m->data = malloc(width * sizeof(char *));
+	m->data = malloc(width * sizeof(unsigned char *));
 
 	int i, j;
 	for (i = 0; i < width; i++)
 	{
-		m->data[i] = malloc(height * sizeof(char));
+		m->data[i] = malloc(height * sizeof(unsigned char));
 	}
 
 	for (i = 0; i < m->height; i++)

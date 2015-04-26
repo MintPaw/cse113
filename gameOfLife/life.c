@@ -92,15 +92,6 @@ void compute_matrix(struct Matrix *start, struct Matrix *end)
 			}
 
 			if (set) set_value(x, y, 1, end);
-			// if (l)
-			// {
-			// 	printf("Cell %d, %d was originally alive with %d near-by %s\n",
-			// 		x,
-			// 		y,
-			// 		n,
-			// 		n > 0 ? "lived" : "died"
-			// 		);
-			// }
 		}
 	}
 }

@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 	int stage = 0;
 	int width = 800;
 	int height = 600;
-	int sprite_size = 4; /* either 2, 4, 8, or 16 */
+	int sprite_size = 8; /* either 2, 4, 8, or 16 */
 	int start_x = 0;
 	int start_y = 0;
 	unsigned char red = 140;
@@ -44,8 +44,8 @@ int main(int argc, char *argv[])
 	
 	init_sdl_info(&sdl_info, width, height, sprite_size, red, green, blue);
 
-	width /= sprite_size;
-	height /= sprite_size;
+	width /= sprite_size / 2;
+	height /= sprite_size / 2;
 
 	printf("Starting...\n");
 	printf("width: %d\nheight: %d\nred: %d\ngreen: %d\nblue: %d\norigin: %d,%d\nfile: %s\n",

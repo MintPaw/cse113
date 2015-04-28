@@ -4,15 +4,28 @@
 
 void setup_matrix(int width, int height, char wrapping, struct Matrix *m)
 {
-	m->width = width;
-	m->height = height;
+	m->width = height;
+	m->height = width;
 	m->wrapping_mode = wrapping;
-	m->data = calloc(height, sizeof(unsigned char *));
 
-	int i, j;
-	for (i = 0; i < height; i++)
+	int i;
+	int j;
+	m->data = calloc(m->height, sizeof(unsigned char *));
+	if(!m->data)
 	{
-		m->data[i] = calloc(width, sizeof(unsigned char));
+		return;
+	}
+
+	for(i = 0; i < m->height; i++)
+	{
+		m->data[i] = calloc(m->width, sizeof(unsigned char));
+		if (!m->data[i])
+		{
+			for(j = 0; j < i; j++)
+			free(m->data[j]);
+			free(m->data);
+			return;
+		}
 	}
 }
 
@@ -61,15 +74,15 @@ void set_value(int x, int y, char value, struct Matrix *m)
 {
 	if (m->wrapping_mode == NONE)
 	{
-		if (x < 0 || x >= m->width || y < 0 || y >= m->height)
+		if (x < 0 || x >= m->width / 2 || y < 0 || y >= m->height / 2)
 		{
 			return;
 		}
 	} else if (m->wrapping_mode == FULL) {
 		int old_x = x;
 		int old_y = y;
-		x = normalize_point(x, m->width);
-		y = normalize_point(y, m->height);
+		x = normalize_point(x, m->width / 2);
+		y = normalize_point(y, m->height / 2);
 		if (old_x != x || old_y != y)
 		{
 			//printf("Point %d, %d normalized to ", old_x, old_y);
@@ -84,13 +97,13 @@ unsigned char get_value(int x, int y, struct Matrix *m)
 {
 	if (m->wrapping_mode == NONE)
 	{
-		if (x < 0 || x >= m->width || y < 0 || y >= m->height)
+		if (x < 0 || x >= m->width / 2 || y < 0 || y >= m->height / 2)
 		{
 			return 0;
 		}
 	} else if (m->wrapping_mode == FULL) {
-		x = normalize_point(x, m->width);
-		y = normalize_point(y, m->height);
+		x = normalize_point(x, m->width / 2);
+		y = normalize_point(y, m->height / 2);
 	}
 
 
@@ -116,7 +129,7 @@ int normalize_point(int p, int max)
 	{
 		return max + p;
 	} else if (p >= max) {
-		return p % max / 2;
+		return p % max;
 	}
 
 	return p;

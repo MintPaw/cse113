@@ -2,7 +2,7 @@
 #include "life.h"
 #include "matrix.h"
 
-void parse_file(int width, int height, FILE *file, struct Matrix *m)
+void parse_file(int width, int height, int start_x, int start_y, FILE *file, struct Matrix *m)
 {
 	char file_string[999];
 	int x;
@@ -39,6 +39,9 @@ void parse_file(int width, int height, FILE *file, struct Matrix *m)
 		}
 	}
 
+	lowest_x -= start_x;
+	lowest_y -= start_y;
+
 	for (i = 0; i < current_point; i++)
 	{
 		points[i].x += -lowest_x;
@@ -48,10 +51,10 @@ void parse_file(int width, int height, FILE *file, struct Matrix *m)
 }
 
 /*
-Any live cell with fewer than two live neighbours dies, as if by needs caused by underpopulation.
-Any live cell with more than three live neighbours dies, as if by overcrowding.
-Any live cell with two or three live neighbours lives, unchanged, to the next generation.
-Any dead cell with exactly three live neighbours cells will come to life.
+	Any live cell with fewer than two live neighbours dies, as if by needs caused by underpopulation.
+	Any live cell with more than three live neighbours dies, as if by overcrowding.
+	Any live cell with two or three live neighbours lives, unchanged, to the next generation.
+	Any dead cell with exactly three live neighbours cells will come to life.
 */
 void compute_matrix(struct Matrix *start, struct Matrix *end)
 {

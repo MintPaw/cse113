@@ -23,5 +23,6 @@ void print_matrix_info(struct Matrix *m);
 void set_value(int x, int y, char value, struct Matrix *m);
 unsigned char get_value(int x, int y, struct Matrix *m);
 void empty_matrix(struct Matrix *m);
+int normalize_point(int p, int max);
 
 #endif

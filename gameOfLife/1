@@ -1,0 +1,143 @@
+==27033== Memcheck, a memory error detector
+==27033== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==27033== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==27033== Command: ./life -f files/glider_106.lif 2 out
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x80492C2: sdl_render_life (in /home/mintpaw/cse113/gameOfLife/life)
+==27033==    by 0x8048FD9: main (gl.c:74)
+==27033== 
+==27033== Invalid write of size 1
+==27033==    at 0x804A1F2: empty_matrix (matrix.c:117)
+==27033==    by 0x8049CB8: compute_matrix (life.c:67)
+==27033==    by 0x8048FED: main (gl.c:75)
+==27033==  Address 0x738e83e is 0 bytes after a block of size 150 alloc'd
+==27033==    at 0x402A17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==27033==    by 0x8049F12: setup_matrix (matrix.c:15)
+==27033==    by 0x8048F72: main (gl.c:64)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049D61: compute_matrix (life.c:79)
+==27033==    by 0x8048FED: main (gl.c:75)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049DAC: compute_matrix (life.c:81)
+==27033==    by 0x8048FED: main (gl.c:75)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049E21: compute_matrix (life.c:84)
+==27033==    by 0x8048FED: main (gl.c:75)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049D19: compute_matrix (life.c:77)
+==27033==    by 0x8048FED: main (gl.c:75)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049DD3: compute_matrix (life.c:82)
+==27033==    by 0x8048FED: main (gl.c:75)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049DFA: compute_matrix (life.c:83)
+==27033==    by 0x8048FED: main (gl.c:75)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049D3D: compute_matrix (life.c:78)
+==27033==    by 0x8048FED: main (gl.c:75)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049D85: compute_matrix (life.c:80)
+==27033==    by 0x8048FED: main (gl.c:75)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049E2B: compute_matrix (life.c:86)
+==27033==    by 0x8048FED: main (gl.c:75)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049E41: compute_matrix (life.c:90)
+==27033==    by 0x8048FED: main (gl.c:75)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049E51: compute_matrix (life.c:93)
+==27033==    by 0x8048FED: main (gl.c:75)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x80492C2: sdl_render_life (in /home/mintpaw/cse113/gameOfLife/life)
+==27033==    by 0x8049012: main (gl.c:78)
+==27033== 
+==27033== Invalid write of size 1
+==27033==    at 0x804A1F2: empty_matrix (matrix.c:117)
+==27033==    by 0x8049CB8: compute_matrix (life.c:67)
+==27033==    by 0x8049026: main (gl.c:79)
+==27033==  Address 0x759d0c6 is 0 bytes after a block of size 150 alloc'd
+==27033==    at 0x402A17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==27033==    by 0x8049F12: setup_matrix (matrix.c:15)
+==27033==    by 0x8048F3A: main (gl.c:63)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049D61: compute_matrix (life.c:79)
+==27033==    by 0x8049026: main (gl.c:79)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049DAC: compute_matrix (life.c:81)
+==27033==    by 0x8049026: main (gl.c:79)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049E21: compute_matrix (life.c:84)
+==27033==    by 0x8049026: main (gl.c:79)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049D19: compute_matrix (life.c:77)
+==27033==    by 0x8049026: main (gl.c:79)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049DD3: compute_matrix (life.c:82)
+==27033==    by 0x8049026: main (gl.c:79)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049DFA: compute_matrix (life.c:83)
+==27033==    by 0x8049026: main (gl.c:79)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049D3D: compute_matrix (life.c:78)
+==27033==    by 0x8049026: main (gl.c:79)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049D85: compute_matrix (life.c:80)
+==27033==    by 0x8049026: main (gl.c:79)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049E2B: compute_matrix (life.c:86)
+==27033==    by 0x8049026: main (gl.c:79)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049E41: compute_matrix (life.c:90)
+==27033==    by 0x8049026: main (gl.c:79)
+==27033== 
+==27033== Conditional jump or move depends on uninitialised value(s)
+==27033==    at 0x8049E51: compute_matrix (life.c:93)
+==27033==    by 0x8049026: main (gl.c:79)
+==27033== 
+Starting...
+width: 400
+height: 300
+red: 140
+green: 145
+blue: 250
+origin: 0,0
+file: files/glider_106.lif
+==27033== 
+==27033== HEAP SUMMARY:
+==27033==     in use at exit: 3,950,166 bytes in 846 blocks
+==27033==   total heap usage: 10,903 allocs, 10,057 frees, 65,596,731 bytes allocated
+==27033== 
+==27033== LEAK SUMMARY:
+==27033==    definitely lost: 12,057 bytes in 7 blocks
+==27033==    indirectly lost: 1,980,636 bytes in 406 blocks
+==27033==      possibly lost: 1,920,000 bytes in 1 blocks
+==27033==    still reachable: 37,473 bytes in 432 blocks
+==27033==         suppressed: 0 bytes in 0 blocks
+==27033== Rerun with --leak-check=full to see details of leaked memory
+==27033== 
+==27033== For counts of detected and suppressed errors, rerun with: -v
+==27033== Use --track-origins=yes to see where uninitialised values come from
+==27033== ERROR SUMMARY: 921264 errors from 26 contexts (suppressed: 3 from 1)

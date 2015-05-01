@@ -34,7 +34,7 @@ void empty_matrix(struct Matrix *m);
 void normalize_points(int *x, int *y, int width, int height, char wrapping);
 
 
-void parse_file(int width, int height, int start_x, int start_y, FILE *file, struct Matrix *m);
+void parse_file(int width, int height, int start_x, int start_y, char *file_name, struct Matrix *m);
 void compute_matrix(struct Matrix *start, struct Matrix *end);
 
 #endif

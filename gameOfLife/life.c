@@ -9,6 +9,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "life.h"
 
 
@@ -21,11 +22,13 @@
 * @param file The file to load from (and close)
 * @param m The matrix to store the pattern in
 */
-void parse_file(int width, int height, int start_x, int start_y, FILE *file, struct Matrix *m)
+void parse_file(int width, int height, int start_x, int start_y, char *file_name, struct Matrix *m)
 {
+	FILE *file = fopen(file_name, "r");
+	char is105 = strstr(file_name, "105") != NULL;
+
 	char file_string[999];
-	int x;
-	int y;
+	int x, y = 0;
 
 	struct Point points[999];
 	int current_point = 0;
@@ -36,9 +39,29 @@ void parse_file(int width, int height, int start_x, int start_y, FILE *file, str
 		if (file_string[0] != '#')
 		{
 			sscanf(file_string, "%d %d", &x, &y);
-			points[current_point].x = x;
-			points[current_point].y = y;
-			current_point++;
+
+			if (is105)
+			{
+				for (x = 0; x < strlen(file_string); x++)
+				{
+					if (file_string[x] == '\n')
+					{
+						continue;
+					}
+
+					if (file_string[x] == '*')
+					{
+						points[current_point].x = x;
+						points[current_point].y = y;
+						current_point++;
+					}
+				}
+				y++;
+			} else {
+				points[current_point].x = x;
+				points[current_point].y = y;
+				current_point++;
+			}
 		}
 	}
 

@@ -20,23 +20,33 @@ int main(int argc, char *argv[])
 	int width = 800;
 	int height = 600;
 	int sprite_size = 2; /* either 2, 4, 8, or 16 */
-	int start_x = 0;
-	int start_y = 0;
+	int start_x0 = 0;
+	int start_y0 = 0;
+	int start_x1 = 0;
+	int start_y1 = 0;
+	int start_x2 = 0;
+	int start_y2 = 0;
 	int edge = NONE;
 	unsigned char red = 140;
 	unsigned char green = 145;
 	unsigned char blue = 250;
 	struct sdl_info_t sdl_info;
 
-	char file_path[265];
+	char file_path0[265] = "";
+	char file_path1[265] = "";
+	char file_path2[265] = "";
 	int c;
-	while ((c = getopt(argc, argv, "w:h:e:r:g:b:s:f:o:H")) != -1)
+	while ((c = getopt(argc, argv, "w:h:e:r:g:b:s:f:o:P:Q:p:q:H")) != -1)
 	{
 		if (c == 'f')
 		{
-			strcpy(file_path, optarg);
+			strcpy(file_path0, optarg);
 		} else if (c == 'w') {
 			width = atoi(optarg);
+		} else if (c == 'P') {
+			strcpy(file_path1, optarg);
+		} else if (c == 'Q') {
+			strcpy(file_path2, optarg);
 		} else if (c == 'h') {
 			height = atoi(optarg);
 		} else if (c == 'r') {
@@ -48,7 +58,11 @@ int main(int argc, char *argv[])
 		} else if (c == 's') {
 			sprite_size = atoi(optarg);
 		} else if (c == 'o') {
-			sscanf(optarg, "%d,%d", &start_x, &start_y);
+			sscanf(optarg, "%d,%d", &start_x0, &start_y0);
+		} else if (c == 'p') {
+			sscanf(optarg, "%d,%d", &start_x1, &start_y1);
+		} else if (c == 'q') {
+			sscanf(optarg, "%d,%d", &start_x2, &start_y2);
 		} else if (c == 'e') {
 			if (!strcmp(optarg, "hedge"))
 			{
@@ -74,15 +88,15 @@ int main(int argc, char *argv[])
 	}
 
 	printf("Starting...\n");
-	printf("width: %d\nheight: %d\nred: %d\ngreen: %d\nblue: %d\norigin: %d,%d\nfile: %s\n",
+	/*printf("width: %d\nheight: %d\nred: %d\ngreen: %d\nblue: %d\norigin: %d,%d\nfile: %s\n",
 		width,
 		height,
 		red,
 		green,
 		blue,
-		start_x,
-		start_y,
-		file_path);
+		start_x0,
+		start_y0,
+		file_path0);*/
 
 	init_sdl_info(&sdl_info, width, height, sprite_size, red, green, blue);
 
@@ -94,7 +108,17 @@ int main(int argc, char *argv[])
 	setup_matrix(width, height, edge, &matrix1);
 	setup_matrix(width, height, edge, &matrix2);
 
-	parse_file(width, height, start_x, start_y, fopen(file_path, "r"), &matrix1);
+	parse_file(width, height, start_x0, start_y0, file_path0, &matrix1);
+
+	if (strlen(file_path1) > 0)
+	{
+		parse_file(width, height, start_x1, start_y1, file_path1, &matrix1);
+	}
+
+	if (strlen(file_path2) > 0)
+	{
+		parse_file(width, height, start_x2, start_y2, file_path2, &matrix1);
+	}
 
 	while (1)
 	{

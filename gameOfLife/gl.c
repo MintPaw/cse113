@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	int sprite_size = 2; /* either 2, 4, 8, or 16 */
 	int start_x = 0;
 	int start_y = 0;
-	int edge;
+	int edge = NONE;
 	unsigned char red = 140;
 	unsigned char green = 145;
 	unsigned char blue = 250;
@@ -55,6 +55,8 @@ int main(int argc, char *argv[])
 				edge = 0;
 			} else if (!strcmp(optarg, "torus")) {
 				edge = 1;
+			} else if (!strcmp(optarg, "klein")) {
+				edge = 2;
 			}
 		} else if (c == 'H') {
 			printf("-w Width\n");
@@ -70,11 +72,6 @@ int main(int argc, char *argv[])
 			return 0;
 		}
 	}
-	
-	init_sdl_info(&sdl_info, width, height, sprite_size, red, green, blue);
-
-	width /= sprite_size / 2;
-	height /= sprite_size / 2;
 
 	printf("Starting...\n");
 	printf("width: %d\nheight: %d\nred: %d\ngreen: %d\nblue: %d\norigin: %d,%d\nfile: %s\n",
@@ -86,6 +83,11 @@ int main(int argc, char *argv[])
 		start_x,
 		start_y,
 		file_path);
+
+	init_sdl_info(&sdl_info, width, height, sprite_size, red, green, blue);
+
+	width /= sprite_size;
+	height /= sprite_size;
 	
 	struct Matrix matrix1;
 	struct Matrix matrix2;
@@ -110,7 +112,6 @@ int main(int argc, char *argv[])
 			}
 		}
 
-		int i, j;
 		SDL_Event event;
 		while (SDL_PollEvent(&event)) 
 		{
@@ -123,19 +124,8 @@ int main(int argc, char *argv[])
 						return 0;
 					break;
 				case SDL_QUIT:
-					for (i = 0; i < matrix1.height; i++)
-					{
-						for(j = 0; j < i; j++)
-						{
-							free(matrix1.data[j]);
-							free(matrix2.data[j]);
-							free(matrix1.data);
-							free(matrix2.data);
-						}
-
-						free(matrix1.data);
-						free(matrix2.data);
-					}
+					destroy_matrix(&matrix1);
+					destroy_matrix(&matrix2);
 					return(0);
 			}
 		}

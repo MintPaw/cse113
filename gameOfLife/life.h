@@ -10,7 +10,7 @@
 
 #define NONE 0
 #define TORUS 1
-#define BOTTLE 1
+#define BOTTLE 2
 
 struct Point
 {
@@ -27,6 +27,7 @@ struct Matrix
 };
 
 void setup_matrix(int width, int height, char wrapping, struct Matrix *m);
+void destroy_matrix(struct Matrix *m);
 void set_value(int x, int y, char value, struct Matrix *m);
 unsigned char get_value(int x, int y, struct Matrix *m);
 void empty_matrix(struct Matrix *m);

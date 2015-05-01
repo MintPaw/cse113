@@ -3,7 +3,7 @@
 * @brief Contains most of the functionality of The Game of Life
 * @author Jeru Sanders
 * @date 4/28/15
-* @todo Add Klein mode
+* @todo None
 * @bug None
 */
 
@@ -128,29 +128,40 @@ void compute_matrix(struct Matrix *start, struct Matrix *end)
 */
 void setup_matrix(int width, int height, char wrapping, struct Matrix *m)
 {
-	m->width = height;
-	m->height = width;
+	m->width = width;
+	m->height = height;
 	m->wrapping_mode = wrapping;
 
-	int i;
-	int j;
-	m->data = calloc(m->height, sizeof(unsigned char *));
+	int x;
+
+	m->data = calloc(m->width, sizeof(unsigned char *));
 	if(!m->data)
 	{
 		return;
 	}
 
-	for(i = 0; i < m->height; i++)
+	for(x = 0; x < m->width; x++)
 	{
-		m->data[i] = calloc(m->width, sizeof(unsigned char));
-		if (!m->data[i])
+		m->data[x] = calloc(m->height, sizeof(unsigned char));
+		
+		if (!m->data[x])
 		{
-			for(j = 0; j < i; j++)
-			free(m->data[j]);
-			free(m->data);
+			destroy_matrix(m);
 			return;
 		}
 	}
+}
+
+// TODO(jeru): Comment
+void destroy_matrix(struct Matrix *m)
+{
+	int x;
+	for(x = 0; x < m->width; x++)
+	{
+		free(m->data[x]);
+	}
+
+	free(m->data);
 }
 
 /**
@@ -169,7 +180,7 @@ void set_value(int x, int y, char value, struct Matrix *m)
 		return;
 	}
 
-	m->data[y][x] = value;
+	m->data[x][y] = value;
 }
 
 /**
@@ -183,12 +194,12 @@ unsigned char get_value(int x, int y, struct Matrix *m)
 {
 	normalize_points(&x, &y, m->width, m->height, m->wrapping_mode);
 
-	if (x == -1)
+	if (x == -999)
 	{
 		return 0;
 	}
 
-	return m->data[y][x];
+	return m->data[x][y];
 }
 
 /**
@@ -218,26 +229,37 @@ void empty_matrix(struct Matrix *m)
 */
 void normalize_points(int *x, int *y, int width, int height, char wrapping)
 {
-	if (wrapping == NONE)
-	{
-		if (*x < 0 || *x >= width / 2 || *y < 0 || *y >= height / 2)
-		{
-			*x = -1;
+	if (wrapping == NONE) {
+		if (*x < 0 || *x >= width || *y < 0 || *y >= height) {
+			*x = -999;
 			return;
 		}
 	} else if (wrapping == TORUS) {
-		if (*x < 0)
-		{
-			*x = width / 2 + *x;
-		} else if (*x >= width) {
-			*x = *x % width;
+		if (*x < 0) {
+			*x = width + *x;
 		}
 
-		if (*y < 0)
-		{
-			*y = height / 2 + *y;
-		} else if (*y >= height) {
-			*y = *y % height;
+		if (*y < 0) {
+			*y = height + *y;
 		}
+
+		*y = *y % height;
+		*x = *x % width;
+	} else if (wrapping == BOTTLE) {
+		if (*y < 0 || *y >= height)
+		{
+			*x *= -1;
+		}
+
+		if (*x < 0) {
+			*x = width + *x;
+		}
+
+		if (*y < 0) {
+			*y = height + *y;
+		}
+
+		*y = *y % height;
+		*x = *x % width;
 	}
 }

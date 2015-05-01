@@ -1,0 +1,185 @@
+\hypertarget{life_8c}{\section{life.\-c File Reference}
+\label{life_8c}\index{life.\-c@{life.\-c}}
+}
+
+
+Contains most of the functionality of The Game of Life.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}life.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{life_8c_afe7ac5842f2ebbbd3b5cd676528bcddd}{parse\-\_\-file} (int width, int height, int start\-\_\-x, int start\-\_\-y, F\-I\-L\-E $\ast$file, struct \hyperlink{struct_matrix}{Matrix} $\ast$m)
+\item 
+void \hyperlink{life_8c_aa6d09da7720ddcf7c5604540de988728}{compute\-\_\-matrix} (struct \hyperlink{struct_matrix}{Matrix} $\ast$start, struct \hyperlink{struct_matrix}{Matrix} $\ast$end)
+\item 
+void \hyperlink{life_8c_a236e8cad1cb21994e249adad69422180}{setup\-\_\-matrix} (int width, int height, char wrapping, struct \hyperlink{struct_matrix}{Matrix} $\ast$m)
+\item 
+void \hyperlink{life_8c_a6e520a46c4494fa98b8a1f26c10c6d51}{set\-\_\-value} (int x, int y, char value, struct \hyperlink{struct_matrix}{Matrix} $\ast$m)
+\item 
+unsigned char \hyperlink{life_8c_ab20978b9559911350798573b1cfd6b7d}{get\-\_\-value} (int x, int y, struct \hyperlink{struct_matrix}{Matrix} $\ast$m)
+\item 
+void \hyperlink{life_8c_af926e0a2d29d98c32c11785811e9a839}{empty\-\_\-matrix} (struct \hyperlink{struct_matrix}{Matrix} $\ast$m)
+\item 
+void \hyperlink{life_8c_a5318c35bad1464b2350adef453780530}{normalize\-\_\-points} (int $\ast$x, int $\ast$y, int width, int height, char wrapping)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains most of the functionality of The Game of Life. \begin{DoxyAuthor}{Author}
+Jeru Sanders 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+4/28/15 
+\end{DoxyDate}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000002}{Todo}]Add Klein mode \end{DoxyRefDesc}
+\begin{DoxyRefDesc}{Bug}
+\item[\hyperlink{bug__bug000002}{Bug}]None \end{DoxyRefDesc}
+
+
+\subsection{Function Documentation}
+\hypertarget{life_8c_aa6d09da7720ddcf7c5604540de988728}{\index{life.\-c@{life.\-c}!compute\-\_\-matrix@{compute\-\_\-matrix}}
+\index{compute\-\_\-matrix@{compute\-\_\-matrix}!life.c@{life.\-c}}
+\subsubsection[{compute\-\_\-matrix}]{\setlength{\rightskip}{0pt plus 5cm}void compute\-\_\-matrix (
+\begin{DoxyParamCaption}
+\item[{struct {\bf Matrix} $\ast$}]{start, }
+\item[{struct {\bf Matrix} $\ast$}]{end}
+\end{DoxyParamCaption}
+)}}\label{life_8c_aa6d09da7720ddcf7c5604540de988728}
+Computes the next stage of the game 
+\begin{DoxyParams}{Parameters}
+{\em start} & The current matrix \\
+\hline
+{\em end} & The matrix to build the next step in \\
+\hline
+\end{DoxyParams}
+\hypertarget{life_8c_af926e0a2d29d98c32c11785811e9a839}{\index{life.\-c@{life.\-c}!empty\-\_\-matrix@{empty\-\_\-matrix}}
+\index{empty\-\_\-matrix@{empty\-\_\-matrix}!life.c@{life.\-c}}
+\subsubsection[{empty\-\_\-matrix}]{\setlength{\rightskip}{0pt plus 5cm}void empty\-\_\-matrix (
+\begin{DoxyParamCaption}
+\item[{struct {\bf Matrix} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{life_8c_af926e0a2d29d98c32c11785811e9a839}
+Empties out a matrix 
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to empty \\
+\hline
+\end{DoxyParams}
+\hypertarget{life_8c_ab20978b9559911350798573b1cfd6b7d}{\index{life.\-c@{life.\-c}!get\-\_\-value@{get\-\_\-value}}
+\index{get\-\_\-value@{get\-\_\-value}!life.c@{life.\-c}}
+\subsubsection[{get\-\_\-value}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char get\-\_\-value (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{struct {\bf Matrix} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{life_8c_ab20978b9559911350798573b1cfd6b7d}
+Gets a value from the matrix 
+\begin{DoxyParams}{Parameters}
+{\em x} & Position x \\
+\hline
+{\em y} & Position y \\
+\hline
+{\em matrix} & The matrix to get it from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value 
+\end{DoxyReturn}
+\hypertarget{life_8c_a5318c35bad1464b2350adef453780530}{\index{life.\-c@{life.\-c}!normalize\-\_\-points@{normalize\-\_\-points}}
+\index{normalize\-\_\-points@{normalize\-\_\-points}!life.c@{life.\-c}}
+\subsubsection[{normalize\-\_\-points}]{\setlength{\rightskip}{0pt plus 5cm}void normalize\-\_\-points (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{x, }
+\item[{int $\ast$}]{y, }
+\item[{int}]{width, }
+\item[{int}]{height, }
+\item[{char}]{wrapping}
+\end{DoxyParamCaption}
+)}}\label{life_8c_a5318c35bad1464b2350adef453780530}
+Normalizes points based on wrapping mode 
+\begin{DoxyParams}{Parameters}
+{\em x} & Position x \\
+\hline
+{\em y} & Position y \\
+\hline
+{\em width} & The width \\
+\hline
+{\em height} & The height \\
+\hline
+{\em wrapping} & The wrapping\-\_\-mode \\
+\hline
+\end{DoxyParams}
+\hypertarget{life_8c_afe7ac5842f2ebbbd3b5cd676528bcddd}{\index{life.\-c@{life.\-c}!parse\-\_\-file@{parse\-\_\-file}}
+\index{parse\-\_\-file@{parse\-\_\-file}!life.c@{life.\-c}}
+\subsubsection[{parse\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}void parse\-\_\-file (
+\begin{DoxyParamCaption}
+\item[{int}]{width, }
+\item[{int}]{height, }
+\item[{int}]{start\-\_\-x, }
+\item[{int}]{start\-\_\-y, }
+\item[{F\-I\-L\-E $\ast$}]{file, }
+\item[{struct {\bf Matrix} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{life_8c_afe7ac5842f2ebbbd3b5cd676528bcddd}
+Stores a 1.\-06 life file in a matrix 
+\begin{DoxyParams}{Parameters}
+{\em width} & The width of the matrix \\
+\hline
+{\em height} & The height of the matrix \\
+\hline
+{\em start\-\_\-x} & height The origin x \\
+\hline
+{\em start\-\_\-y} & height The origin y \\
+\hline
+{\em file} & The file to load from (and close) \\
+\hline
+{\em m} & The matrix to store the pattern in \\
+\hline
+\end{DoxyParams}
+\hypertarget{life_8c_a6e520a46c4494fa98b8a1f26c10c6d51}{\index{life.\-c@{life.\-c}!set\-\_\-value@{set\-\_\-value}}
+\index{set\-\_\-value@{set\-\_\-value}!life.c@{life.\-c}}
+\subsubsection[{set\-\_\-value}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-value (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{char}]{value, }
+\item[{struct {\bf Matrix} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{life_8c_a6e520a46c4494fa98b8a1f26c10c6d51}
+Sets a value in the matrix 
+\begin{DoxyParams}{Parameters}
+{\em x} & Position x \\
+\hline
+{\em y} & Position y \\
+\hline
+{\em value} & The value to store \\
+\hline
+{\em matrix} & The matrix to store it in \\
+\hline
+\end{DoxyParams}
+\hypertarget{life_8c_a236e8cad1cb21994e249adad69422180}{\index{life.\-c@{life.\-c}!setup\-\_\-matrix@{setup\-\_\-matrix}}
+\index{setup\-\_\-matrix@{setup\-\_\-matrix}!life.c@{life.\-c}}
+\subsubsection[{setup\-\_\-matrix}]{\setlength{\rightskip}{0pt plus 5cm}void setup\-\_\-matrix (
+\begin{DoxyParamCaption}
+\item[{int}]{width, }
+\item[{int}]{height, }
+\item[{char}]{wrapping, }
+\item[{struct {\bf Matrix} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{life_8c_a236e8cad1cb21994e249adad69422180}
+Crates an empty matrix 
+\begin{DoxyParams}{Parameters}
+{\em width} & The matrix width \\
+\hline
+{\em height} & The matrix height \\
+\hline
+{\em wrapping} & The wrapping mode \\
+\hline
+{\em m} & The matrix reference \\
+\hline
+\end{DoxyParams}

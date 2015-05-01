@@ -1,18 +1,28 @@
+/**
+* @file gl.c
+* @brief Simulates the game of life
+* @details An SDL program that allows you to load and execute 1.06 life files with different options
+* @author Jeru Sanders
+* @date 4/28/15
+* @todo Add Klein mode
+* @bug None
+*/
+
 #include <stdlib.h>
 #include <unistd.h>
 #include "SDL2/SDL.h" 
 #include "sdl.h"
 #include "life.h"
-#include "matrix.h"
 
 int main(int argc, char *argv[])
 {
 	int stage = 0;
 	int width = 800;
 	int height = 600;
-	int sprite_size = 8; /* either 2, 4, 8, or 16 */
+	int sprite_size = 2; /* either 2, 4, 8, or 16 */
 	int start_x = 0;
 	int start_y = 0;
+	int edge;
 	unsigned char red = 140;
 	unsigned char green = 145;
 	unsigned char blue = 250;
@@ -39,6 +49,25 @@ int main(int argc, char *argv[])
 			sprite_size = atoi(optarg);
 		} else if (c == 'o') {
 			sscanf(optarg, "%d,%d", &start_x, &start_y);
+		} else if (c == 'e') {
+			if (!strcmp(optarg, "hedge"))
+			{
+				edge = 0;
+			} else if (!strcmp(optarg, "torus")) {
+				edge = 1;
+			}
+		} else if (c == 'H') {
+			printf("-w Width\n");
+			printf("-h Height\n");
+			printf("-e Edge type ('hedge' or 'torus')\n");
+			printf("-r Red value\n");
+			printf("-b Blue value\n");
+			printf("-g Green value\n");
+			printf("-s Sprite size (2, 4, 8, or 16)\n");
+			printf("-f 1.06 life file\n");
+			printf("-o The origin (-o 2,3)\n");
+			printf("-H Displays this message\n");
+			return 0;
 		}
 	}
 	
@@ -60,8 +89,8 @@ int main(int argc, char *argv[])
 	
 	struct Matrix matrix1;
 	struct Matrix matrix2;
-	setup_matrix(width, height, FULL, &matrix1);
-	setup_matrix(width, height, FULL, &matrix2);
+	setup_matrix(width, height, edge, &matrix1);
+	setup_matrix(width, height, edge, &matrix2);
 
 	parse_file(width, height, start_x, start_y, fopen(file_path, "r"), &matrix1);
 
@@ -81,6 +110,7 @@ int main(int argc, char *argv[])
 			}
 		}
 
+		int i, j;
 		SDL_Event event;
 		while (SDL_PollEvent(&event)) 
 		{
@@ -93,9 +123,23 @@ int main(int argc, char *argv[])
 						return 0;
 					break;
 				case SDL_QUIT:
+					for (i = 0; i < matrix1.height; i++)
+					{
+						for(j = 0; j < i; j++)
+						{
+							free(matrix1.data[j]);
+							free(matrix2.data[j]);
+							free(matrix1.data);
+							free(matrix2.data);
+						}
+
+						free(matrix1.data);
+						free(matrix2.data);
+					}
 					return(0);
 			}
 		}
 	}
+
 	return 0;
 }
